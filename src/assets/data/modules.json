@@ -1,0 +1,492 @@
+{
+  "modules": [
+    {
+      "id": "module-1",
+      "order": 1,
+      "slug": "foundations-of-logarithms",
+      "title": "Foundations of Logarithms",
+      "subtitle": "Understanding what logarithms represent",
+      "description": "This foundational module introduces the fundamental question that logarithms answer and establishes the relationship between exponential and logarithmic forms. Learners explore the distinction between common logarithms and natural logarithms, understanding why nature tends toward exponential processes and why logarithms are the essential tool for understanding them.",
+      "icon": "foundation",
+      "color": "forest",
+      "estimatedTime": "45 min",
+      "prerequisites": [],
+      "lessons": [
+        {
+          "id": "lesson-1-1",
+          "title": "What Question Does a Logarithm Answer?",
+          "description": "Discover the fundamental question logarithms solve",
+          "concepts": ["logarithm-definition", "base", "exponent"]
+        },
+        {
+          "id": "lesson-1-2",
+          "title": "Exponential and Logarithmic Forms",
+          "description": "Master the conversion between forms",
+          "concepts": ["exponential-form", "logarithmic-form", "conversion"]
+        },
+        {
+          "id": "lesson-1-3",
+          "title": "Common and Natural Logarithms",
+          "description": "Understand log base 10 and natural log",
+          "concepts": ["common-logarithm", "natural-logarithm", "e"]
+        },
+        {
+          "id": "lesson-1-4",
+          "title": "Logarithm Properties",
+          "description": "Learn the key properties for calculations",
+          "concepts": ["product-rule", "quotient-rule", "power-rule"]
+        }
+      ],
+      "keyVisualizations": [
+        {
+          "id": "logarithmic-number-line",
+          "title": "Interactive Logarithmic Number Line",
+          "description": "Demonstrates logarithmic compression"
+        },
+        {
+          "id": "exponential-log-converter",
+          "title": "Exponential-Logarithm Converter",
+          "description": "Animated conversion between forms"
+        },
+        {
+          "id": "compression-demo",
+          "title": "Linear vs Log Compression",
+          "description": "Visual comparison of scales"
+        }
+      ],
+      "exerciseCounts": {
+        "conceptual": 5,
+        "computational": 5,
+        "applied": 5,
+        "challenge": 3
+      }
+    },
+    {
+      "id": "module-2",
+      "order": 2,
+      "slug": "the-ph-scale",
+      "title": "The pH Scale",
+      "subtitle": "Chemistry's logarithmic measure",
+      "description": "Explores the definition of pH as the negative logarithm of hydrogen ion concentration, demonstrating why a logarithmic scale is necessary for chemistry. The module covers the biological significance of pH in enzyme function, blood chemistry, and ecosystem health, including buffer systems and pH regulation in living organisms.",
+      "icon": "flask",
+      "color": "ocean",
+      "estimatedTime": "50 min",
+      "prerequisites": ["module-1"],
+      "lessons": [
+        {
+          "id": "lesson-2-1",
+          "title": "Defining pH",
+          "description": "The mathematical definition of pH",
+          "concepts": ["ph-definition", "hydrogen-ion", "negative-log"]
+        },
+        {
+          "id": "lesson-2-2",
+          "title": "The pH Spectrum",
+          "description": "Exploring acids, bases, and neutral solutions",
+          "concepts": ["acidic", "basic", "neutral", "ph-scale"]
+        },
+        {
+          "id": "lesson-2-3",
+          "title": "pH in Living Systems",
+          "description": "Biological importance of pH regulation",
+          "concepts": ["blood-ph", "enzyme-function", "cellular-ph"]
+        },
+        {
+          "id": "lesson-2-4",
+          "title": "Buffer Systems",
+          "description": "How organisms maintain pH stability",
+          "concepts": ["buffer", "henderson-hasselbalch", "homeostasis"]
+        }
+      ],
+      "keyVisualizations": [
+        {
+          "id": "ph-spectrum",
+          "title": "Interactive pH Spectrum",
+          "description": "Full 0-14 scale with biological examples"
+        },
+        {
+          "id": "hydrogen-ion-calculator",
+          "title": "H+ Ion Calculator",
+          "description": "Convert between pH and concentration"
+        },
+        {
+          "id": "ocean-acidification-chart",
+          "title": "Ocean Acidification",
+          "description": "Climate change case study"
+        }
+      ],
+      "exerciseCounts": {
+        "conceptual": 5,
+        "computational": 5,
+        "applied": 5,
+        "challenge": 5
+      }
+    },
+    {
+      "id": "module-3",
+      "order": 3,
+      "slug": "population-dynamics",
+      "title": "Population Dynamics",
+      "subtitle": "Growth, decay, and logarithmic analysis",
+      "description": "Covers exponential growth models and their biological basis, the meaning of growth rate constants, doubling time calculations using logarithms, and the concept of carrying capacity and logistic growth. Learners discover why semi-logarithmic plots are powerful tools for linearizing exponential data.",
+      "icon": "chart",
+      "color": "amber",
+      "estimatedTime": "55 min",
+      "prerequisites": ["module-1"],
+      "lessons": [
+        {
+          "id": "lesson-3-1",
+          "title": "Exponential Growth",
+          "description": "The mathematics of unconstrained growth",
+          "concepts": ["exponential-growth", "growth-rate", "n-naught"]
+        },
+        {
+          "id": "lesson-3-2",
+          "title": "Doubling Time",
+          "description": "Calculating population doubling using logarithms",
+          "concepts": ["doubling-time", "rule-of-70", "half-life"]
+        },
+        {
+          "id": "lesson-3-3",
+          "title": "Semi-Log Plots",
+          "description": "Linearizing exponential data",
+          "concepts": ["semi-log-plot", "slope-interpretation", "data-analysis"]
+        },
+        {
+          "id": "lesson-3-4",
+          "title": "Logistic Growth",
+          "description": "Carrying capacity and real populations",
+          "concepts": ["carrying-capacity", "logistic-curve", "s-curve"]
+        }
+      ],
+      "keyVisualizations": [
+        {
+          "id": "population-growth-simulator",
+          "title": "Population Growth Simulator",
+          "description": "Adjustable parameters, exp vs logistic"
+        },
+        {
+          "id": "linear-vs-log-scale",
+          "title": "Linear vs Log Scale",
+          "description": "Side-by-side comparison"
+        },
+        {
+          "id": "bacterial-growth-curve",
+          "title": "Bacterial Growth Curve",
+          "description": "Four phases of growth"
+        }
+      ],
+      "exerciseCounts": {
+        "conceptual": 5,
+        "computational": 5,
+        "applied": 5,
+        "challenge": 5
+      }
+    },
+    {
+      "id": "module-4",
+      "order": 4,
+      "slug": "pharmacokinetics",
+      "title": "Pharmacokinetics",
+      "subtitle": "Drug concentration over time",
+      "description": "Introduces first-order kinetics and why drugs follow exponential decay patterns. The module explains the half-life concept and its clinical importance, steady-state concentrations with repeated dosing, therapeutic windows, and the significance of area under the curve in drug efficacy studies.",
+      "icon": "pill",
+      "color": "forest",
+      "estimatedTime": "50 min",
+      "prerequisites": ["module-1", "module-3"],
+      "lessons": [
+        {
+          "id": "lesson-4-1",
+          "title": "First-Order Kinetics",
+          "description": "Why drugs decay exponentially",
+          "concepts": ["first-order", "elimination-constant", "exponential-decay"]
+        },
+        {
+          "id": "lesson-4-2",
+          "title": "Half-Life",
+          "description": "The clinical importance of drug half-life",
+          "concepts": ["half-life", "clearance", "volume-of-distribution"]
+        },
+        {
+          "id": "lesson-4-3",
+          "title": "Repeated Dosing",
+          "description": "Accumulation and steady state",
+          "concepts": ["steady-state", "accumulation", "dosing-interval"]
+        },
+        {
+          "id": "lesson-4-4",
+          "title": "Therapeutic Windows",
+          "description": "Maintaining effective drug levels",
+          "concepts": ["therapeutic-range", "toxic-level", "minimum-effective"]
+        }
+      ],
+      "keyVisualizations": [
+        {
+          "id": "drug-concentration-curve",
+          "title": "Drug Concentration Curve",
+          "description": "Single-dose decay with half-life"
+        },
+        {
+          "id": "multi-dose-accumulator",
+          "title": "Multi-Dose Accumulator",
+          "description": "Repeated dosing simulation"
+        },
+        {
+          "id": "therapeutic-window",
+          "title": "Therapeutic Window",
+          "description": "Safe zone visualization"
+        }
+      ],
+      "exerciseCounts": {
+        "conceptual": 5,
+        "computational": 5,
+        "applied": 5,
+        "challenge": 5
+      }
+    },
+    {
+      "id": "module-5",
+      "order": 5,
+      "slug": "allometric-scaling",
+      "title": "Allometric Scaling",
+      "subtitle": "Size matters in biology",
+      "description": "Examines power laws in biology, particularly Kleiber's Law relating metabolic rate to body mass. Learners discover why log-log plots reveal hidden relationships, explore biological explanations for scaling exponents, and understand applications in cross-species drug dosing.",
+      "icon": "scale",
+      "color": "ocean",
+      "estimatedTime": "55 min",
+      "prerequisites": ["module-1"],
+      "lessons": [
+        {
+          "id": "lesson-5-1",
+          "title": "Power Laws in Biology",
+          "description": "Understanding Y = aX^b relationships",
+          "concepts": ["power-law", "scaling-exponent", "allometry"]
+        },
+        {
+          "id": "lesson-5-2",
+          "title": "Log-Log Plots",
+          "description": "Linearizing power law data",
+          "concepts": ["log-log-plot", "slope-exponent", "intercept"]
+        },
+        {
+          "id": "lesson-5-3",
+          "title": "Kleiber's Law",
+          "description": "Metabolic scaling across species",
+          "concepts": ["kleibers-law", "metabolic-rate", "three-quarters"]
+        },
+        {
+          "id": "lesson-5-4",
+          "title": "Applications",
+          "description": "Drug dosing and physiological predictions",
+          "concepts": ["allometric-dosing", "heart-rate-scaling", "lifespan"]
+        }
+      ],
+      "keyVisualizations": [
+        {
+          "id": "log-log-plot-builder",
+          "title": "Log-Log Plot Builder",
+          "description": "Build and analyze scaling relationships"
+        },
+        {
+          "id": "slope-calculator",
+          "title": "Slope Calculator",
+          "description": "Extract scaling exponents"
+        },
+        {
+          "id": "species-comparison",
+          "title": "Species Comparison",
+          "description": "Compare from shrew to elephant"
+        }
+      ],
+      "exerciseCounts": {
+        "conceptual": 5,
+        "computational": 5,
+        "applied": 5,
+        "challenge": 5
+      }
+    },
+    {
+      "id": "module-6",
+      "order": 6,
+      "slug": "sensory-perception",
+      "title": "Sensory Perception",
+      "subtitle": "How we perceive the world logarithmically",
+      "description": "Explores the Weber-Fechner Law and the logarithmic nature of human perception. Topics include sound intensity and the decibel scale, light perception and photographic stops, and evolutionary explanations for why sensory systems process information logarithmically.",
+      "icon": "eye",
+      "color": "amber",
+      "estimatedTime": "45 min",
+      "prerequisites": ["module-1"],
+      "lessons": [
+        {
+          "id": "lesson-6-1",
+          "title": "Weber-Fechner Law",
+          "description": "The mathematics of perception",
+          "concepts": ["weber-fechner", "just-noticeable-difference", "sensation"]
+        },
+        {
+          "id": "lesson-6-2",
+          "title": "The Decibel Scale",
+          "description": "Measuring sound logarithmically",
+          "concepts": ["decibel", "sound-intensity", "reference-level"]
+        },
+        {
+          "id": "lesson-6-3",
+          "title": "Light and Vision",
+          "description": "Photographic stops and brightness",
+          "concepts": ["f-stops", "brightness-perception", "dynamic-range"]
+        },
+        {
+          "id": "lesson-6-4",
+          "title": "Evolutionary Perspective",
+          "description": "Why logarithmic perception evolved",
+          "concepts": ["range-compression", "survival-advantage", "adaptation"]
+        }
+      ],
+      "keyVisualizations": [
+        {
+          "id": "decibel-demo",
+          "title": "Decibel Demo",
+          "description": "Compare sound intensities"
+        },
+        {
+          "id": "brightness-slider",
+          "title": "Brightness Slider",
+          "description": "Photographic stops demonstration"
+        },
+        {
+          "id": "perception-vs-reality",
+          "title": "Perception vs Reality",
+          "description": "Weber-Fechner visualization"
+        }
+      ],
+      "exerciseCounts": {
+        "conceptual": 5,
+        "computational": 5,
+        "applied": 5,
+        "challenge": 5
+      }
+    },
+    {
+      "id": "module-7",
+      "order": 7,
+      "slug": "enzyme-kinetics",
+      "title": "Enzyme Kinetics",
+      "subtitle": "Analyzing biochemical reactions",
+      "description": "Covers substrate concentration and reaction rate relationships, Lineweaver-Burk plots and double reciprocal analysis, methods for determining kinetic parameters from log-transformed data, and graphical signatures of different inhibition types.",
+      "icon": "enzyme",
+      "color": "forest",
+      "estimatedTime": "60 min",
+      "prerequisites": ["module-1"],
+      "lessons": [
+        {
+          "id": "lesson-7-1",
+          "title": "Michaelis-Menten Kinetics",
+          "description": "The fundamental enzyme equation",
+          "concepts": ["michaelis-menten", "km", "vmax"]
+        },
+        {
+          "id": "lesson-7-2",
+          "title": "Lineweaver-Burk Plots",
+          "description": "Linearizing enzyme kinetics",
+          "concepts": ["lineweaver-burk", "double-reciprocal", "parameter-extraction"]
+        },
+        {
+          "id": "lesson-7-3",
+          "title": "Enzyme Inhibition",
+          "description": "Competitive, non-competitive, and more",
+          "concepts": ["competitive-inhibition", "non-competitive", "uncompetitive"]
+        },
+        {
+          "id": "lesson-7-4",
+          "title": "Drug Design Applications",
+          "description": "Using kinetics in pharmacology",
+          "concepts": ["inhibitor-design", "ki", "therapeutic-targets"]
+        }
+      ],
+      "keyVisualizations": [
+        {
+          "id": "enzyme-kinetics-curve",
+          "title": "Enzyme Kinetics Curve",
+          "description": "Michaelis-Menten with adjustable parameters"
+        },
+        {
+          "id": "lineweaver-burk-plot",
+          "title": "Lineweaver-Burk Plot",
+          "description": "Double reciprocal analysis"
+        },
+        {
+          "id": "inhibitor-simulator",
+          "title": "Inhibitor Simulator",
+          "description": "Compare inhibition types"
+        }
+      ],
+      "exerciseCounts": {
+        "conceptual": 5,
+        "computational": 5,
+        "applied": 5,
+        "challenge": 5
+      }
+    },
+    {
+      "id": "module-8",
+      "order": 8,
+      "slug": "ecological-applications",
+      "title": "Ecological Applications",
+      "subtitle": "Biodiversity and conservation",
+      "description": "Introduces the species-area relationship, Shannon diversity index and information theory connections, island biogeography principles and conservation applications, and log-series and log-normal species abundance distributions.",
+      "icon": "leaf",
+      "color": "ocean",
+      "estimatedTime": "55 min",
+      "prerequisites": ["module-1", "module-3"],
+      "lessons": [
+        {
+          "id": "lesson-8-1",
+          "title": "Species-Area Relationship",
+          "description": "How area affects biodiversity",
+          "concepts": ["species-area", "z-value", "island-effect"]
+        },
+        {
+          "id": "lesson-8-2",
+          "title": "Shannon Diversity Index",
+          "description": "Measuring community diversity",
+          "concepts": ["shannon-index", "evenness", "richness"]
+        },
+        {
+          "id": "lesson-8-3",
+          "title": "Island Biogeography",
+          "description": "MacArthur-Wilson equilibrium theory",
+          "concepts": ["colonization", "extinction", "equilibrium"]
+        },
+        {
+          "id": "lesson-8-4",
+          "title": "Conservation Applications",
+          "description": "Using logarithms in conservation planning",
+          "concepts": ["habitat-fragmentation", "extinction-debt", "reserve-design"]
+        }
+      ],
+      "keyVisualizations": [
+        {
+          "id": "species-area-explorer",
+          "title": "Species-Area Explorer",
+          "description": "Explore island size effects"
+        },
+        {
+          "id": "diversity-index-calculator",
+          "title": "Diversity Calculator",
+          "description": "Calculate Shannon index"
+        },
+        {
+          "id": "extinction-risk-visualizer",
+          "title": "Extinction Risk",
+          "description": "Habitat loss simulation"
+        }
+      ],
+      "exerciseCounts": {
+        "conceptual": 5,
+        "computational": 5,
+        "applied": 5,
+        "challenge": 5
+      }
+    }
+  ]
+}

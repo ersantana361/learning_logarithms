@@ -1,0 +1,279 @@
+{
+  "moduleId": "module-2",
+  "exercises": {
+    "conceptual": [
+      {
+        "id": "m2-c1",
+        "question": "Explain in your own words why scientists use pH instead of directly reporting hydrogen ion concentrations.",
+        "type": "free-response",
+        "hints": [
+          "Consider the range of [H⁺] values in nature",
+          "Think about what 0.0000001 M vs 0.00001 M looks like"
+        ],
+        "solution": {
+          "summary": "pH compresses a huge range (14 orders of magnitude) into a manageable 0-14 scale, making comparisons easier.",
+          "detailed": "Hydrogen ion concentrations span from 10⁰ M (extremely acidic) to 10⁻¹⁴ M (extremely basic)—a range of 14 orders of magnitude. Writing out numbers like 0.0000001 M is cumbersome and error-prone. The pH scale compresses this vast range into simple numbers from 0 to 14, making it easier to communicate, compare, and calculate with acidity values."
+        }
+      },
+      {
+        "id": "m2-c2",
+        "question": "Why is the pH scale logarithmic rather than linear? What biological advantage does this provide?",
+        "type": "free-response",
+        "hints": [
+          "Think about how enzymes respond to pH changes",
+          "Consider the range of pH values in different body compartments"
+        ],
+        "solution": {
+          "summary": "A logarithmic scale matches how biological systems respond—proportionally rather than absolutely—and compresses the huge range of [H⁺] into a usable scale.",
+          "detailed": "Biological systems typically respond to proportional changes rather than absolute changes. A pH change from 5 to 4 (10× more [H⁺]) has similar biological impact as a change from 2 to 1 (also 10× more [H⁺]). Additionally, the 14-order-of-magnitude range of [H⁺] would be impossible to display linearly. The log scale also connects to how our cells buffer: they resist proportional changes in [H⁺]."
+        }
+      },
+      {
+        "id": "m2-c3",
+        "question": "Blood pH must stay between 7.35 and 7.45 for survival. Why is this narrow range (only 0.1 pH units) so critical?",
+        "type": "free-response",
+        "hints": [
+          "Consider what proteins do in the body",
+          "Think about how pH affects molecular charge"
+        ],
+        "solution": {
+          "summary": "This range represents a 26% change in [H⁺], enough to significantly affect enzyme function, protein structure, and cell membrane properties.",
+          "detailed": "A 0.1 pH unit change represents a 26% change in hydrogen ion concentration (10^0.1 ≈ 1.26). This alters the charge on amino acids in proteins, affecting enzyme active sites and protein folding. Hemoglobin's oxygen-binding changes with pH (Bohr effect). Cell membrane channels and transporters are pH-sensitive. Even small deviations can cascade into organ dysfunction."
+        }
+      },
+      {
+        "id": "m2-c4",
+        "question": "Explain why the 'p' in pH stands for 'power' and how this relates to logarithms.",
+        "type": "free-response",
+        "hints": [
+          "What does the exponent in 10^x represent?",
+          "How does -log relate to exponents?"
+        ],
+        "solution": {
+          "summary": "The 'p' operator means 'negative log base 10' or 'power of 10.' pH gives the negative exponent when [H⁺] is written as a power of 10.",
+          "detailed": "When [H⁺] = 10⁻⁷ M, the pH = 7. The '7' is the power (exponent) of 10 that gives the concentration (with a sign change). The 'p' operator (-log₁₀) extracts this power. This is why we also have pOH, pKa, pKb—all using the same 'p' operator to convert multiplicative relationships into additive ones."
+        }
+      },
+      {
+        "id": "m2-c5",
+        "question": "Ocean pH has dropped by 0.1 units since pre-industrial times. Why is this considered a major environmental concern despite being 'just' 0.1?",
+        "type": "free-response",
+        "hints": [
+          "Calculate the percentage change in [H⁺]",
+          "Consider effects on shell-forming organisms"
+        ],
+        "solution": {
+          "summary": "A 0.1 pH drop = 26% more H⁺ ions. This reduces carbonate availability, making it harder for corals, shellfish, and plankton to build shells.",
+          "detailed": "The 0.1 pH drop represents a 26% increase in acidity (ocean is now 30% more acidic overall since 1850). This shifts the carbonate equilibrium: more carbonate ions convert to bicarbonate, reducing the building blocks that corals, mollusks, and many plankton need for their calcium carbonate structures. The rate of change is also concerning—faster than any time in 300 million years, giving organisms little time to adapt."
+        }
+      }
+    ],
+    "computational": [
+      {
+        "id": "m2-p1",
+        "question": "Calculate the pH of a solution with [H⁺] = 10⁻³ M",
+        "type": "numerical",
+        "answer": 3,
+        "tolerance": 0,
+        "hints": [
+          "pH = -log₁₀[H⁺]"
+        ],
+        "solution": {
+          "summary": "pH = 3",
+          "detailed": "pH = -log₁₀(10⁻³) = -(-3) = 3. The pH equals the absolute value of the exponent when [H⁺] is a power of 10."
+        }
+      },
+      {
+        "id": "m2-p2",
+        "question": "Calculate the [H⁺] concentration for a solution with pH = 5",
+        "type": "multiple-choice",
+        "options": [
+          {"id": "a", "text": "10⁻⁵ M", "correct": true},
+          {"id": "b", "text": "10⁵ M"},
+          {"id": "c", "text": "5 M"},
+          {"id": "d", "text": "0.5 M"}
+        ],
+        "hints": [
+          "[H⁺] = 10⁻ᵖᴴ"
+        ],
+        "solution": {
+          "summary": "[H⁺] = 10⁻⁵ M",
+          "detailed": "[H⁺] = 10⁻ᵖᴴ = 10⁻⁵ M = 0.00001 M. This is the inverse of the pH calculation."
+        }
+      },
+      {
+        "id": "m2-p3",
+        "question": "What is the pH of a solution with [H⁺] = 4.7 × 10⁻⁹ M? (Round to one decimal place)",
+        "type": "numerical",
+        "answer": 8.3,
+        "tolerance": 0.1,
+        "hints": [
+          "pH = -log₁₀(4.7 × 10⁻⁹)",
+          "Use log rules: log(a×b) = log(a) + log(b)"
+        ],
+        "solution": {
+          "summary": "pH ≈ 8.3",
+          "detailed": "pH = -log₁₀(4.7 × 10⁻⁹) = -(log₁₀(4.7) + log₁₀(10⁻⁹)) = -(0.67 + (-9)) = -0.67 + 9 = 8.33 ≈ 8.3"
+        }
+      },
+      {
+        "id": "m2-p4",
+        "question": "If a solution's pH changes from 6 to 4, by what factor does [H⁺] increase?",
+        "type": "numerical",
+        "answer": 100,
+        "tolerance": 0,
+        "hints": [
+          "The pH changed by 2 units",
+          "Each pH unit = 10× change in [H⁺]"
+        ],
+        "solution": {
+          "summary": "100× (or 10²)",
+          "detailed": "pH dropped by 2 units. Each unit represents a 10× change. So total change = 10² = 100×. Alternatively: [H⁺] at pH 6 = 10⁻⁶; at pH 4 = 10⁻⁴. Ratio = 10⁻⁴/10⁻⁶ = 10² = 100."
+        }
+      },
+      {
+        "id": "m2-p5",
+        "question": "Stomach acid has pH 2 and blood has pH 7.4. How many times more concentrated is [H⁺] in stomach acid?",
+        "type": "multiple-choice",
+        "options": [
+          {"id": "a", "text": "5.4 times"},
+          {"id": "b", "text": "54 times"},
+          {"id": "c", "text": "About 25,000 times", "correct": true},
+          {"id": "d", "text": "About 250,000 times"}
+        ],
+        "hints": [
+          "Find 10^(7.4-2) = 10^5.4"
+        ],
+        "solution": {
+          "summary": "About 25,000 times (10^5.4 ≈ 251,000)",
+          "detailed": "Ratio = 10⁻²/10⁻⁷·⁴ = 10^(7.4-2) = 10^5.4 ≈ 251,000. So stomach acid has about 250,000× more H⁺ than blood. This is why the stomach lining needs special protection!"
+        }
+      }
+    ],
+    "applied": [
+      {
+        "id": "m2-a1",
+        "question": "A patient's blood pH drops from 7.40 to 7.25 (acidosis). By what percentage has [H⁺] increased?",
+        "type": "numerical",
+        "answer": 41,
+        "tolerance": 3,
+        "unit": "%",
+        "hints": [
+          "Calculate 10^(7.40-7.25) = 10^0.15",
+          "Convert ratio to percentage increase"
+        ],
+        "solution": {
+          "summary": "About 41% increase",
+          "detailed": "Ratio = 10^(7.40-7.25) = 10^0.15 ≈ 1.41. This means [H⁺] is 1.41× what it was, representing a 41% increase. This level of acidosis is clinically significant and requires treatment."
+        }
+      },
+      {
+        "id": "m2-a2",
+        "question": "Ocean pH is projected to drop from 8.1 to 7.8 by 2100 under high emissions. By what factor will [H⁺] increase?",
+        "type": "numerical",
+        "answer": 2,
+        "tolerance": 0.1,
+        "hints": [
+          "10^(8.1-7.8) = 10^0.3"
+        ],
+        "solution": {
+          "summary": "About 2× (doubling)",
+          "detailed": "Ratio = 10^(8.1-7.8) = 10^0.3 ≈ 2.0. Ocean acidity would approximately double, severely impacting shell-forming organisms and coral reefs."
+        }
+      },
+      {
+        "id": "m2-a3",
+        "question": "A swimming pool should have pH between 7.2 and 7.8. If the current pH is 6.8, by what factor must [H⁺] decrease to reach pH 7.4?",
+        "type": "numerical",
+        "answer": 4,
+        "tolerance": 0.2,
+        "hints": [
+          "10^(7.4-6.8) = 10^0.6"
+        ],
+        "solution": {
+          "summary": "About 4× decrease",
+          "detailed": "10^(7.4-6.8) = 10^0.6 ≈ 4.0. The pool needs to have its [H⁺] reduced by a factor of 4, typically done by adding a base like sodium carbonate."
+        }
+      },
+      {
+        "id": "m2-a4",
+        "question": "A bacterial culture grows optimally at pH 7.0 but can tolerate pH from 6.0 to 8.0. What is the range of [H⁺] concentrations the bacteria can tolerate?",
+        "type": "multiple-choice",
+        "options": [
+          {"id": "a", "text": "2× range (from 0.5× to 2× optimal)"},
+          {"id": "b", "text": "10× range (from 0.1× to 10× optimal)"},
+          {"id": "c", "text": "100× range (from 0.1× to 10× optimal)", "correct": true},
+          {"id": "d", "text": "1000× range (from 0.01× to 100× optimal)"}
+        ],
+        "hints": [
+          "pH 6 to pH 7 is 10×, pH 7 to pH 8 is 10×"
+        ],
+        "solution": {
+          "summary": "100× range",
+          "detailed": "At pH 6: [H⁺] = 10⁻⁶ (10× higher than optimal). At pH 8: [H⁺] = 10⁻⁸ (10× lower than optimal). Total range = 10⁻⁶/10⁻⁸ = 100×. The bacteria tolerate a 100-fold range in [H⁺]!"
+        }
+      },
+      {
+        "id": "m2-a5",
+        "question": "Rain is considered 'acid rain' when pH < 5.6 (vs normal rain pH ≈ 5.6). If acid rain has pH 4.2, how much more acidic is it than normal?",
+        "type": "numerical",
+        "answer": 25,
+        "tolerance": 3,
+        "unit": "times",
+        "hints": [
+          "10^(5.6-4.2) = 10^1.4"
+        ],
+        "solution": {
+          "summary": "About 25× more acidic",
+          "detailed": "10^(5.6-4.2) = 10^1.4 ≈ 25. Acid rain at pH 4.2 has about 25 times more H⁺ ions than normal rain, enough to damage vegetation, corrode buildings, and acidify lakes."
+        }
+      }
+    ],
+    "challenge": [
+      {
+        "id": "m2-ch1",
+        "question": "Derive the relationship between pH and pOH. Given that Kw = [H⁺][OH⁻] = 10⁻¹⁴ at 25°C, prove that pH + pOH = 14.",
+        "type": "free-response",
+        "hints": [
+          "Take -log₁₀ of both sides of Kw = [H⁺][OH⁻]",
+          "Use the log property: log(ab) = log(a) + log(b)"
+        ],
+        "solution": {
+          "summary": "-log(Kw) = -log([H⁺][OH⁻]) = -log[H⁺] - log[OH⁻] = pH + pOH = 14",
+          "detailed": "Starting with Kw = [H⁺][OH⁻] = 10⁻¹⁴. Take -log₁₀ of both sides: -log₁₀(10⁻¹⁴) = -log₁₀([H⁺][OH⁻]). Left side: -(-14) = 14. Right side: -log[H⁺] - log[OH⁻] = pH + pOH. Therefore: pH + pOH = 14. This elegant relationship lets us find [OH⁻] from pH alone."
+        }
+      },
+      {
+        "id": "m2-ch2",
+        "question": "The Henderson-Hasselbalch equation is pH = pKa + log([A⁻]/[HA]). If a buffer has pKa = 7.4 and you want pH = 7.4, what should be the ratio of [A⁻] to [HA]?",
+        "type": "numerical",
+        "answer": 1,
+        "tolerance": 0,
+        "hints": [
+          "Substitute the values into the equation",
+          "What value of x gives log(x) = 0?"
+        ],
+        "solution": {
+          "summary": "Ratio = 1 (equal concentrations)",
+          "detailed": "7.4 = 7.4 + log([A⁻]/[HA]). Subtracting 7.4: 0 = log([A⁻]/[HA]). Since log(1) = 0: [A⁻]/[HA] = 1. At pH = pKa, a buffer has equal concentrations of acid and conjugate base. This is also where buffering capacity is maximum."
+        }
+      },
+      {
+        "id": "m2-ch3",
+        "question": "A researcher measures pH 6.8 with ±0.05 uncertainty. What is the corresponding uncertainty in [H⁺]? Express as a percentage.",
+        "type": "numerical",
+        "answer": 12,
+        "tolerance": 2,
+        "unit": "%",
+        "hints": [
+          "Calculate [H⁺] at pH 6.75 and 6.85",
+          "Find the range as a percentage of the central value"
+        ],
+        "solution": {
+          "summary": "About ±12% uncertainty",
+          "detailed": "At pH 6.8: [H⁺] = 10⁻⁶·⁸ = 1.58×10⁻⁷. At pH 6.75: [H⁺] = 10⁻⁶·⁷⁵ = 1.78×10⁻⁷. At pH 6.85: [H⁺] = 10⁻⁶·⁸⁵ = 1.41×10⁻⁷. Range: 1.78-1.41 = 0.37×10⁻⁷. Half-range/mean ≈ 0.185/1.58 ≈ 12%. Note how logarithmic scales amplify small pH uncertainties into larger concentration uncertainties."
+        }
+      }
+    ]
+  }
+}

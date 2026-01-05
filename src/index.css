@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+/* Nature-inspired theme for Logarithms in Biology */
+@theme {
+  /* Primary: Forest/Earthy Greens */
+  --color-forest-50: #f0fdf4;
+  --color-forest-100: #dcfce7;
+  --color-forest-200: #bbf7d0;
+  --color-forest-300: #86efac;
+  --color-forest-400: #4ade80;
+  --color-forest-500: #22c55e;
+  --color-forest-600: #16a34a;
+  --color-forest-700: #15803d;
+  --color-forest-800: #166534;
+  --color-forest-900: #14532d;
+  --color-forest-950: #052e16;
+
+  /* Secondary: Ocean/Deep Blues */
+  --color-ocean-50: #eff6ff;
+  --color-ocean-100: #dbeafe;
+  --color-ocean-200: #bfdbfe;
+  --color-ocean-300: #93c5fd;
+  --color-ocean-400: #60a5fa;
+  --color-ocean-500: #3b82f6;
+  --color-ocean-600: #2563eb;
+  --color-ocean-700: #1d4ed8;
+  --color-ocean-800: #1e40af;
+  --color-ocean-900: #1e3a5a;
+  --color-ocean-950: #172554;
+
+  /* Accent: Warm Amber */
+  --color-amber-50: #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-200: #fde68a;
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+  --color-amber-700: #b45309;
+  --color-amber-800: #92400e;
+  --color-amber-900: #78350f;
+  --color-amber-950: #451a03;
+
+  /* Neutral: Sand/Warm Grays */
+  --color-sand-50: #fafaf9;
+  --color-sand-100: #f5f5f4;
+  --color-sand-200: #e7e5e4;
+  --color-sand-300: #d6d3d1;
+  --color-sand-400: #a8a29e;
+  --color-sand-500: #78716c;
+  --color-sand-600: #57534e;
+  --color-sand-700: #44403c;
+  --color-sand-800: #292524;
+  --color-sand-900: #1c1917;
+  --color-sand-950: #0c0a09;
+
+  /* Semantic colors */
+  --color-primary: var(--color-forest-600);
+  --color-primary-hover: var(--color-forest-700);
+  --color-secondary: var(--color-ocean-600);
+  --color-secondary-hover: var(--color-ocean-700);
+  --color-accent: var(--color-amber-500);
+  --color-accent-hover: var(--color-amber-600);
+
+  /* Typography */
+  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-serif: 'Source Serif Pro', Georgia, serif;
+  --font-family-mono: 'Fira Code', 'Consolas', monospace;
+
+  /* Spacing */
+  --spacing-18: 4.5rem;
+  --spacing-22: 5.5rem;
+
+  /* Border radius */
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+}
+
+/* Base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-family-sans);
+    background-color: var(--color-sand-50);
+    color: var(--color-sand-900);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-serif);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  code, pre {
+    font-family: var(--font-family-mono);
+  }
+
+  /* Focus styles for accessibility */
+  :focus-visible {
+    outline: 2px solid var(--color-ocean-500);
+    outline-offset: 2px;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Component layer */
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background-color: var(--color-forest-600);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-forest-700);
+  }
+
+  .btn-secondary {
+    background-color: var(--color-ocean-600);
+    color: white;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-ocean-700);
+  }
+
+  .card {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+  }
+
+  .visualization-container {
+    background-color: white;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-sand-200);
+    padding: 1rem;
+    overflow: hidden;
+  }
+}
+
+/* Utility layer */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "moduleId": "module-6",
+  "lessons": [
+    {
+      "id": "weber-fechner",
+      "title": "The Weber-Fechner Law",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "Our senses don't perceive the world linearly. The **Weber-Fechner Law** states that perceived intensity is proportional to the logarithm of stimulus intensity. This explains why we need logarithmic scales to describe sound (decibels), light (exposure values), and other sensory experiences."
+        },
+        {
+          "type": "definition",
+          "term": "Weber-Fechner Law",
+          "definition": "Sensation S is proportional to the logarithm of stimulus intensity I: S = k × log(I/I₀). This means equal ratios of stimulus intensity produce equal differences in perception."
+        },
+        {
+          "type": "visualization",
+          "component": "DecibelDemo"
+        },
+        {
+          "type": "keyPoint",
+          "points": [
+            "Human hearing spans 12 orders of magnitude (10⁻¹² to 1 W/m²)",
+            "Decibels: dB = 10 × log₁₀(I/I₀)",
+            "Every 10 dB = 10× intensity, perceived as roughly 2× louder",
+            "Vision and other senses also follow logarithmic perception"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "decibels",
+      "title": "The Decibel Scale",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "The **decibel** is a logarithmic unit that compresses the enormous range of sound intensities into a manageable scale. Understanding decibels is essential for audiology, acoustics, and protecting hearing from damage."
+        },
+        {
+          "type": "math",
+          "equation": "\\text{dB} = 10 \\times \\log_{10}\\left(\\frac{I}{I_0}\\right)",
+          "explanation": "Sound level in decibels, where I₀ = 10⁻¹² W/m² is the threshold of hearing."
+        },
+        {
+          "type": "keyPoint",
+          "points": [
+            "0 dB = threshold of hearing",
+            "60 dB = normal conversation",
+            "85 dB = hearing damage with prolonged exposure",
+            "120 dB = pain threshold"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "moduleId": "module-4",
+  "lessons": [
+    {
+      "id": "first-order-kinetics",
+      "title": "First-Order Elimination Kinetics",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "When you take a drug, your body immediately begins eliminating it through metabolism and excretion. Most drugs follow **first-order kinetics**, where the rate of elimination is proportional to the current concentration. This creates exponential decay—and logarithms are essential for understanding and calculating drug levels."
+        },
+        {
+          "type": "definition",
+          "term": "First-Order Kinetics",
+          "definition": "A constant fraction (not amount) of drug is eliminated per unit time. The rate of elimination = k × [Drug], where k is the elimination rate constant."
+        },
+        {
+          "type": "math",
+          "equation": "C(t) = C_0 \\cdot e^{-kt}",
+          "explanation": "Drug concentration C decreases exponentially from initial concentration C₀. The elimination rate constant k determines how fast the drug is cleared."
+        },
+        {
+          "type": "visualization",
+          "component": "DrugConcentrationCurve"
+        },
+        {
+          "type": "keyPoint",
+          "points": [
+            "First-order kinetics: constant fraction eliminated per time unit",
+            "On a log scale, concentration vs time is a straight line",
+            "The slope equals -k (negative of elimination constant)",
+            "Most drugs follow first-order kinetics at therapeutic concentrations"
+          ]
+        },
+        {
+          "type": "practice",
+          "question": "A drug has k = 0.1/hr. If C₀ = 100 mg/L, what is the concentration after 5 hours?",
+          "hint": "Use C(t) = C₀ × e^(-kt)",
+          "answer": "C(5) = 100 × e^(-0.1×5) = 100 × e^(-0.5) = 100 × 0.607 ≈ 61 mg/L"
+        }
+      ]
+    },
+    {
+      "id": "half-life",
+      "title": "Drug Half-Life",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "The **half-life** (t½) is the time required for drug concentration to decrease by 50%. It's one of the most important pharmacokinetic parameters because it determines dosing frequency and how long a drug stays in your system."
+        },
+        {
+          "type": "property",
+          "name": "Half-Life Formula",
+          "formula": "t_{1/2} = \\frac{\\ln(2)}{k} = \\frac{0.693}{k}",
+          "explanation": "Half-life is inversely proportional to the elimination constant. A larger k means faster elimination and shorter half-life.",
+          "example": "If k = 0.1/hr, then t½ = 0.693/0.1 = 6.93 hours"
+        },
+        {
+          "type": "keyPoint",
+          "points": [
+            "After 1 half-life: 50% remains",
+            "After 2 half-lives: 25% remains",
+            "After 3 half-lives: 12.5% remains",
+            "After 5 half-lives: ~3% remains (drug essentially eliminated)"
+          ]
+        },
+        {
+          "type": "definition",
+          "term": "Clinical Rule of 5",
+          "definition": "After 5 half-lives, approximately 97% of the drug has been eliminated. This is considered 'complete' elimination for practical purposes and is used to calculate drug washout periods."
+        },
+        {
+          "type": "application",
+          "title": "Clinical Implications",
+          "content": "Half-life determines dosing frequency. Drugs with short half-lives (2-4 hours) may need to be taken 3-4 times daily. Drugs with long half-lives (24+ hours) can be taken once daily. Extended-release formulations artificially lengthen the effective half-life."
+        },
+        {
+          "type": "practice",
+          "question": "A patient stops taking a medication with t½ = 12 hours. How long until the drug is essentially eliminated?",
+          "hint": "Use the Rule of 5: complete elimination ≈ 5 × t½",
+          "answer": "5 × 12 hours = 60 hours (2.5 days)"
+        }
+      ]
+    },
+    {
+      "id": "multiple-dosing",
+      "title": "Multiple Dosing and Steady State",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "When drugs are taken repeatedly, concentration doesn't return to zero between doses. Instead, drug accumulates until reaching a **steady state** where the amount eliminated between doses equals the dose given. Understanding this accumulation requires logarithmic analysis."
+        },
+        {
+          "type": "visualization",
+          "component": "MultiDoseSimulator"
+        },
+        {
+          "type": "property",
+          "name": "Accumulation Factor",
+          "formula": "R = \\frac{1}{1 - e^{-k\\tau}}",
+          "explanation": "R is the factor by which concentration increases from first dose to steady state. τ (tau) is the dosing interval.",
+          "example": "If k = 0.1/hr and τ = 8 hr: R = 1/(1-e^(-0.8)) = 1/0.55 = 1.82"
+        },
+        {
+          "type": "keyPoint",
+          "points": [
+            "Steady state is reached after 4-5 half-lives",
+            "Time to steady state depends ONLY on half-life, not on dose",
+            "Larger doses increase steady-state concentration but not time to reach it",
+            "More frequent dosing (shorter τ) leads to higher steady-state levels"
+          ]
+        },
+        {
+          "type": "definition",
+          "term": "Steady-State Peak and Trough",
+          "definition": "At steady state, concentration oscillates between Css,max (peak, just after a dose) and Css,min (trough, just before the next dose). The ratio of peak to trough depends on the dosing interval relative to half-life."
+        },
+        {
+          "type": "practice",
+          "question": "A drug has t½ = 8 hours and is given every 8 hours. What is the accumulation factor?",
+          "hint": "k = 0.693/8 = 0.0866/hr. Use R = 1/(1-e^(-kτ))",
+          "answer": "R = 1/(1-e^(-0.693)) = 1/(1-0.5) = 2. Steady-state levels are 2× the first-dose levels."
+        }
+      ]
+    },
+    {
+      "id": "therapeutic-window",
+      "title": "The Therapeutic Window",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "Every drug has a **therapeutic window**—the concentration range between the minimum effective level and the toxic level. The goal of dosing regimens is to maintain drug levels within this window. Drugs with narrow therapeutic windows require careful monitoring and dose adjustments."
+        },
+        {
+          "type": "visualization",
+          "component": "TherapeuticWindow"
+        },
+        {
+          "type": "definition",
+          "term": "Therapeutic Index",
+          "definition": "The ratio of toxic dose to effective dose (TD/ED or TC/EC). A larger therapeutic index means a wider safety margin. Drugs with therapeutic index < 2 are considered 'narrow therapeutic index' drugs."
+        },
+        {
+          "type": "comparison",
+          "title": "Examples of Therapeutic Indices",
+          "items": [
+            {
+              "type": "Wide Therapeutic Index",
+              "uses": ["Penicillin (TI > 100)", "Acetaminophen (TI ~ 10)", "Most over-the-counter drugs"],
+              "reason": "Large margin between effective and toxic doses—relatively safe"
+            },
+            {
+              "type": "Narrow Therapeutic Index",
+              "uses": ["Warfarin (TI ~ 2)", "Digoxin", "Lithium", "Aminoglycosides"],
+              "reason": "Small margin—requires blood level monitoring and careful dosing"
+            }
+          ]
+        },
+        {
+          "type": "keyPoint",
+          "points": [
+            "Narrow TI drugs require therapeutic drug monitoring (TDM)",
+            "Dosing interval affects how much concentration fluctuates",
+            "Loading doses can achieve therapeutic levels faster",
+            "Patient factors (age, weight, kidney function) affect drug levels"
+          ]
+        },
+        {
+          "type": "application",
+          "title": "Optimizing Dosing Regimens",
+          "content": "For narrow TI drugs, pharmacists and physicians balance: 1) Dose size (affects peak), 2) Dosing interval (affects trough and fluctuation), 3) Patient-specific clearance. The goal: maximize time in therapeutic range while minimizing toxicity risk."
+        },
+        {
+          "type": "practice",
+          "question": "A drug has MEC = 10 mg/L and MTC = 30 mg/L. What is the therapeutic index?",
+          "hint": "TI = MTC/MEC",
+          "answer": "TI = 30/10 = 3. This is a relatively narrow therapeutic index, suggesting the drug may require monitoring."
+        }
+      ]
+    }
+  ]
+}

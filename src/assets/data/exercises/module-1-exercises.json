@@ -1,0 +1,282 @@
+{
+  "moduleId": "module-1",
+  "exercises": {
+    "conceptual": [
+      {
+        "id": "m1-c1",
+        "question": "In your own words, explain what question a logarithm answers. Give an example using base 10.",
+        "type": "free-response",
+        "hints": [
+          "Think about what operation logarithms 'undo'",
+          "Consider: If 10^x = 1000, what is x asking?"
+        ],
+        "solution": {
+          "summary": "A logarithm answers: 'What power do I need to raise the base to in order to get this number?'",
+          "detailed": "For example, log₁₀(1000) asks: '10 to what power equals 1000?' The answer is 3 because 10³ = 1000. The logarithm tells us the exponent."
+        },
+        "rubric": ["Mentions finding the exponent/power", "Correctly identifies the relationship to exponentiation", "Provides a valid example"]
+      },
+      {
+        "id": "m1-c2",
+        "question": "Why do scientists often prefer logarithmic scales when dealing with biological data? List three reasons.",
+        "type": "free-response",
+        "hints": [
+          "Consider data that spans many orders of magnitude",
+          "Think about how growth rates appear on different scales",
+          "Consider practical issues like fitting data on a graph"
+        ],
+        "solution": {
+          "summary": "1) Compresses wide ranges, 2) Reveals exponential patterns as straight lines, 3) Handles multiplicative processes naturally",
+          "detailed": "1) Biological data often spans many orders of magnitude (e.g., bacterial counts from 10 to 10,000,000). Log scales compress this range to fit on a single graph. 2) Exponential growth appears as a straight line on a log scale, making it easy to identify and analyze. 3) Many biological processes are multiplicative (doubling, halving), and log scales convert these to additive relationships that are easier to work with statistically."
+        }
+      },
+      {
+        "id": "m1-c3",
+        "question": "Explain the difference between log₁₀ (common logarithm) and ln (natural logarithm). When might you use each in biology?",
+        "type": "free-response",
+        "hints": [
+          "What is the base of each?",
+          "Think about pH calculations vs. growth equations"
+        ],
+        "solution": {
+          "summary": "log₁₀ uses base 10, ln uses base e≈2.718. Use log₁₀ for pH and decibels; use ln for growth/decay models.",
+          "detailed": "The common logarithm (log₁₀) uses base 10 and is convenient for working with orders of magnitude. It's used in pH calculations (pH = -log[H⁺]) and decibel measurements. The natural logarithm (ln) uses base e≈2.718 and arises naturally in continuous growth and decay processes. It's used in population growth models (N = N₀e^rt) and pharmacokinetics because e simplifies the calculus of continuous change."
+        }
+      },
+      {
+        "id": "m1-c4",
+        "question": "If someone says 'the data spans 6 orders of magnitude,' what does this mean? How many times larger is the biggest value compared to the smallest?",
+        "type": "free-response",
+        "hints": [
+          "Each order of magnitude is a factor of 10",
+          "6 orders = 10^6"
+        ],
+        "solution": {
+          "summary": "The data ranges over 6 powers of 10, so the largest value is 10^6 = 1,000,000 times larger than the smallest.",
+          "detailed": "An 'order of magnitude' is a factor of 10. Data spanning 6 orders of magnitude means the ratio of largest to smallest is 10^6 = 1,000,000. For example, data from 1 to 1,000,000 or from 0.001 to 1,000 both span 6 orders of magnitude. This is exactly the kind of range where logarithmic scales become essential."
+        }
+      },
+      {
+        "id": "m1-c5",
+        "question": "Why is the number e (approximately 2.718) considered 'natural'? What biological processes naturally involve e?",
+        "type": "free-response",
+        "hints": [
+          "Think about continuous compounding",
+          "Consider processes that don't happen in discrete steps"
+        ],
+        "solution": {
+          "summary": "e emerges from continuous growth. Processes like radioactive decay, drug elimination, and unconstrained population growth naturally involve e.",
+          "detailed": "The number e arises when growth or decay happens continuously rather than in discrete steps. If something grows at a 100% continuous rate, it will be e times larger after one time unit. Biological processes involving e include: continuous population growth, radioactive decay, drug elimination from the body (first-order kinetics), and diffusion. The mathematics of continuous change (calculus) becomes simplest when using base e."
+        }
+      }
+    ],
+    "computational": [
+      {
+        "id": "m1-p1",
+        "question": "Convert to logarithmic form: 10³ = 1000",
+        "type": "multiple-choice",
+        "options": [
+          {"id": "a", "text": "log₁₀(3) = 1000"},
+          {"id": "b", "text": "log₁₀(1000) = 3", "correct": true},
+          {"id": "c", "text": "log₃(1000) = 10"},
+          {"id": "d", "text": "log₁₀(10) = 3"}
+        ],
+        "hints": [
+          "In b^x = y, the base b stays the base of the log",
+          "The result y goes inside the logarithm"
+        ],
+        "solution": {
+          "summary": "log₁₀(1000) = 3",
+          "detailed": "To convert b^x = y to logarithmic form: log_b(y) = x. Here, b=10, x=3, y=1000. So 10³ = 1000 becomes log₁₀(1000) = 3."
+        }
+      },
+      {
+        "id": "m1-p2",
+        "question": "Convert to logarithmic form: 2⁸ = 256",
+        "type": "multiple-choice",
+        "options": [
+          {"id": "a", "text": "log₂(256) = 8", "correct": true},
+          {"id": "b", "text": "log₈(256) = 2"},
+          {"id": "c", "text": "log₂(8) = 256"},
+          {"id": "d", "text": "log₂₅₆(2) = 8"}
+        ],
+        "hints": [
+          "The base (2) becomes the subscript of log"
+        ],
+        "solution": {
+          "summary": "log₂(256) = 8",
+          "detailed": "2⁸ = 256 converts to log₂(256) = 8. The base 2 stays, 256 goes in parentheses, and 8 is the result."
+        }
+      },
+      {
+        "id": "m1-p3",
+        "question": "Convert to exponential form: log₁₀(10000) = 4",
+        "type": "multiple-choice",
+        "options": [
+          {"id": "a", "text": "4¹⁰ = 10000"},
+          {"id": "b", "text": "10⁴ = 10000", "correct": true},
+          {"id": "c", "text": "10000⁴ = 10"},
+          {"id": "d", "text": "10^10000 = 4"}
+        ],
+        "hints": [
+          "log_b(y) = x means b^x = y"
+        ],
+        "solution": {
+          "summary": "10⁴ = 10000",
+          "detailed": "log₁₀(10000) = 4 means '10 to what power equals 10000? Answer: 4.' This converts to 10⁴ = 10000."
+        }
+      },
+      {
+        "id": "m1-p4",
+        "question": "Calculate without a calculator: log₁₀(100)",
+        "type": "numerical",
+        "answer": 2,
+        "tolerance": 0,
+        "hints": [
+          "100 = 10²"
+        ],
+        "solution": {
+          "summary": "2",
+          "detailed": "log₁₀(100) = log₁₀(10²) = 2. Since 10² = 100, the answer is 2."
+        }
+      },
+      {
+        "id": "m1-p5",
+        "question": "Calculate without a calculator: log₁₀(0.001)",
+        "type": "numerical",
+        "answer": -3,
+        "tolerance": 0,
+        "hints": [
+          "0.001 = 1/1000 = 10⁻³"
+        ],
+        "solution": {
+          "summary": "-3",
+          "detailed": "0.001 = 1/1000 = 1/10³ = 10⁻³. Therefore log₁₀(0.001) = log₁₀(10⁻³) = -3."
+        }
+      }
+    ],
+    "applied": [
+      {
+        "id": "m1-a1",
+        "question": "A microscope can detect objects from 1 micrometer to 1 millimeter. How many orders of magnitude does this range span?",
+        "type": "numerical",
+        "answer": 3,
+        "tolerance": 0,
+        "hints": [
+          "1 mm = 1000 μm",
+          "Orders of magnitude = log₁₀(ratio)"
+        ],
+        "solution": {
+          "summary": "3 orders of magnitude",
+          "detailed": "1 mm = 1000 μm. The ratio is 1000/1 = 1000 = 10³. Therefore the range spans 3 orders of magnitude (log₁₀(1000) = 3)."
+        }
+      },
+      {
+        "id": "m1-a2",
+        "question": "Sound intensity ranges from 10⁻¹² W/m² (threshold of hearing) to 10² W/m² (jet engine). Express this range in orders of magnitude.",
+        "type": "numerical",
+        "answer": 14,
+        "tolerance": 0,
+        "hints": [
+          "Find the exponent difference",
+          "10²/10⁻¹² = 10^(2-(-12))"
+        ],
+        "solution": {
+          "summary": "14 orders of magnitude",
+          "detailed": "The ratio is 10²/10⁻¹² = 10^(2-(-12)) = 10¹⁴. This spans 14 orders of magnitude—an enormous range that our ears handle through logarithmic processing!"
+        }
+      },
+      {
+        "id": "m1-a3",
+        "question": "If a value increases by a factor of 1000, by how much does its log₁₀ increase?",
+        "type": "numerical",
+        "answer": 3,
+        "tolerance": 0,
+        "hints": [
+          "1000 = 10³",
+          "Use the property log(A×B) = log(A) + log(B)"
+        ],
+        "solution": {
+          "summary": "3",
+          "detailed": "If x increases by 1000, the new value is 1000x. log(1000x) = log(1000) + log(x) = 3 + log(x). So the log increases by 3."
+        }
+      },
+      {
+        "id": "m1-a4",
+        "question": "A biologist measures cell counts at 10, 100, 1000, 10000, and 100000. On a logarithmic scale, what is the spacing between consecutive points?",
+        "type": "multiple-choice",
+        "options": [
+          {"id": "a", "text": "Varies—larger gaps between larger numbers"},
+          {"id": "b", "text": "Equal spacing of 1 log unit", "correct": true},
+          {"id": "c", "text": "Equal spacing of 10 units"},
+          {"id": "d", "text": "Decreasing gaps between larger numbers"}
+        ],
+        "hints": [
+          "Each value is 10× the previous",
+          "log₁₀(10) = 1"
+        ],
+        "solution": {
+          "summary": "Equal spacing of 1 log unit",
+          "detailed": "On a log scale, these points are at positions 1, 2, 3, 4, 5 (the log₁₀ values). They are evenly spaced, 1 unit apart. This is the power of log scales—multiplicative relationships become additive!"
+        }
+      },
+      {
+        "id": "m1-a5",
+        "question": "Explain why log₁₀(0) is undefined. What biological scenario might approach this mathematical impossibility?",
+        "type": "free-response",
+        "hints": [
+          "What power of 10 gives 0?",
+          "Think about extinction or complete elimination"
+        ],
+        "solution": {
+          "summary": "There is no power of 10 that equals 0. Biological scenarios include extinction or complete drug elimination.",
+          "detailed": "log₁₀(0) is undefined because there is no exponent x where 10^x = 0. As x → -∞, 10^x approaches 0 but never reaches it. Biologically, this relates to extinction (you can get very close to 0 organisms but mathematically never reach it from a continuous model), or drug elimination (concentration approaches but never exactly reaches zero)."
+        }
+      }
+    ],
+    "challenge": [
+      {
+        "id": "m1-ch1",
+        "question": "Prove that log(x^n) = n × log(x) using the definition of logarithms.",
+        "type": "free-response",
+        "hints": [
+          "Let log(x) = a, meaning 10^a = x",
+          "Then x^n = (10^a)^n"
+        ],
+        "solution": {
+          "summary": "Using 10^a = x, we get x^n = 10^(an), so log(x^n) = an = n×log(x)",
+          "detailed": "Proof: Let log(x) = a, which means 10^a = x by definition. Then x^n = (10^a)^n = 10^(an) by exponent rules. Taking the log of both sides: log(x^n) = log(10^(an)) = an = n × log(x). QED."
+        }
+      },
+      {
+        "id": "m1-ch2",
+        "question": "The Richter scale for earthquakes is logarithmic. If an earthquake of magnitude 7 releases energy E, how much energy does a magnitude 9 earthquake release?",
+        "type": "numerical",
+        "answer": 1000,
+        "tolerance": 50,
+        "unit": "E",
+        "hints": [
+          "Each magnitude unit represents a 10× increase in amplitude",
+          "Energy scales as 10^(1.5×magnitude)"
+        ],
+        "solution": {
+          "summary": "About 1000E (actually 10³ = 1000 times more energy)",
+          "detailed": "On the Richter scale, each unit increase corresponds to roughly 31.6× more energy (10^1.5 ≈ 31.6). For 2 units: 31.6² ≈ 1000. So a magnitude 9 earthquake releases about 1000 times more energy than a magnitude 7. This illustrates why 'big' earthquakes are so much more destructive."
+        }
+      },
+      {
+        "id": "m1-ch3",
+        "question": "Create your own example of a biological measurement that spans multiple orders of magnitude and explain why a logarithmic representation would be useful.",
+        "type": "free-response",
+        "hints": [
+          "Think about sizes, concentrations, populations, or time scales",
+          "Consider what patterns might be visible on a log scale"
+        ],
+        "solution": {
+          "summary": "Examples include: hormone concentrations, organism sizes, evolutionary time scales, or protein copy numbers per cell.",
+          "detailed": "Example: Protein copy numbers per cell range from ~1 (rare transcription factors) to ~10,000,000 (ribosomes). This spans 7 orders of magnitude. A log scale would: 1) Allow all proteins to be shown on one graph, 2) Reveal whether protein abundance follows a particular distribution, 3) Make fold-changes visible (a 10× change looks the same whether from 10→100 or from 100,000→1,000,000)."
+        }
+      }
+    ]
+  }
+}

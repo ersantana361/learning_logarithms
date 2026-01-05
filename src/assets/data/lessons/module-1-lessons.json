@@ -1,0 +1,202 @@
+{
+  "moduleId": "module-1",
+  "lessons": [
+    {
+      "id": "lesson-1-1",
+      "title": "What Question Does a Logarithm Answer?",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "Imagine you're a biologist studying bacteria. You start with 1 bacterium, and it doubles every hour. After some time, you count 1,024 bacteria. A natural question arises: **How many hours have passed?**"
+        },
+        {
+          "type": "narrative",
+          "content": "To find the answer, you need to solve: 2^x = 1024. What power of 2 gives you 1024? This is exactly the question a logarithm answers."
+        },
+        {
+          "type": "math",
+          "equation": "\\log_2(1024) = 10",
+          "explanation": "The logarithm base 2 of 1024 equals 10, because 2^10 = 1024"
+        },
+        {
+          "type": "definition",
+          "term": "Logarithm",
+          "definition": "A logarithm answers the question: 'To what power must I raise the base to get this number?' If b^x = y, then log_b(y) = x."
+        },
+        {
+          "type": "narrative",
+          "content": "In simpler terms: **logarithms undo exponentiation**, just like subtraction undoes addition and division undoes multiplication."
+        },
+        {
+          "type": "visualization",
+          "component": "ExponentialLogConverter"
+        },
+        {
+          "type": "keyPoint",
+          "points": [
+            "Logarithms answer: 'What exponent gives me this result?'",
+            "If 10^3 = 1000, then log₁₀(1000) = 3",
+            "Logarithms and exponentials are inverse operations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson-1-2",
+      "title": "Exponential and Logarithmic Forms",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "Every exponential equation can be rewritten in logarithmic form, and vice versa. This conversion is one of the most important skills in working with logarithms."
+        },
+        {
+          "type": "math",
+          "equation": "b^x = y \\Leftrightarrow \\log_b(y) = x",
+          "explanation": "The fundamental relationship: exponential form on the left, logarithmic form on the right"
+        },
+        {
+          "type": "example",
+          "title": "Converting Between Forms",
+          "examples": [
+            {
+              "exponential": "10^3 = 1000",
+              "logarithmic": "log₁₀(1000) = 3",
+              "note": "The base stays the same, the exponent becomes the answer"
+            },
+            {
+              "exponential": "2^8 = 256",
+              "logarithmic": "log₂(256) = 8",
+              "note": "Base 2 logarithms are common in computer science"
+            },
+            {
+              "exponential": "e^1 ≈ 2.718",
+              "logarithmic": "ln(2.718) ≈ 1",
+              "note": "Natural log (ln) uses base e ≈ 2.718"
+            }
+          ]
+        },
+        {
+          "type": "narrative",
+          "content": "Notice the pattern: In the exponential form b^x = y, the **base** (b) becomes the base of the logarithm, the **result** (y) goes inside the logarithm, and the **exponent** (x) becomes the answer."
+        },
+        {
+          "type": "visualization",
+          "component": "ExponentialLogConverter"
+        },
+        {
+          "type": "practice",
+          "question": "Convert 5^4 = 625 to logarithmic form",
+          "answer": "log₅(625) = 4",
+          "hint": "The base (5) stays the same, the result (625) goes in parentheses, and the exponent (4) is the answer"
+        }
+      ]
+    },
+    {
+      "id": "lesson-1-3",
+      "title": "Common and Natural Logarithms",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "While logarithms can have any positive base (except 1), two bases are so common in science that they have special notation."
+        },
+        {
+          "type": "definition",
+          "term": "Common Logarithm (log₁₀)",
+          "definition": "The logarithm with base 10, written as 'log' without a subscript. Used for pH, decibels, and the Richter scale."
+        },
+        {
+          "type": "math",
+          "equation": "\\log(x) = \\log_{10}(x)",
+          "explanation": "When you see 'log' without a base, it usually means log base 10"
+        },
+        {
+          "type": "definition",
+          "term": "Natural Logarithm (ln)",
+          "definition": "The logarithm with base e ≈ 2.71828, written as 'ln'. Used in growth models, calculus, and physics."
+        },
+        {
+          "type": "math",
+          "equation": "\\ln(x) = \\log_e(x)",
+          "explanation": "The natural log uses the special number e as its base"
+        },
+        {
+          "type": "narrative",
+          "content": "Why is e ≈ 2.718 considered 'natural'? It emerges from continuous growth. If something grows continuously at 100% rate, after one unit of time it will have grown by a factor of e. This makes e the natural base for describing growth, decay, and change in the real world."
+        },
+        {
+          "type": "comparison",
+          "title": "When to Use Each",
+          "items": [
+            {
+              "type": "Common Log (log₁₀)",
+              "uses": ["pH calculations", "Decibel measurements", "Richter scale", "Orders of magnitude"],
+              "reason": "Base 10 matches our number system and is intuitive for 'how many digits'"
+            },
+            {
+              "type": "Natural Log (ln)",
+              "uses": ["Population growth", "Radioactive decay", "Drug elimination", "Calculus"],
+              "reason": "Base e simplifies the mathematics of continuous change"
+            }
+          ]
+        },
+        {
+          "type": "visualization",
+          "component": "LogarithmicNumberLine"
+        }
+      ]
+    },
+    {
+      "id": "lesson-1-4",
+      "title": "Logarithm Properties",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "Logarithms have several properties that make calculations easier. These properties are direct consequences of how exponents work."
+        },
+        {
+          "type": "property",
+          "name": "Product Rule",
+          "formula": "\\log(A \\times B) = \\log(A) + \\log(B)",
+          "explanation": "The log of a product equals the sum of the logs. This is because when you multiply numbers, you add their exponents.",
+          "example": "log(100 × 1000) = log(100) + log(1000) = 2 + 3 = 5 ✓ (since 100 × 1000 = 100,000 = 10^5)"
+        },
+        {
+          "type": "property",
+          "name": "Quotient Rule",
+          "formula": "\\log\\left(\\frac{A}{B}\\right) = \\log(A) - \\log(B)",
+          "explanation": "The log of a quotient equals the difference of the logs. Division corresponds to subtracting exponents.",
+          "example": "log(1000/10) = log(1000) - log(10) = 3 - 1 = 2 ✓ (since 1000/10 = 100 = 10^2)"
+        },
+        {
+          "type": "property",
+          "name": "Power Rule",
+          "formula": "\\log(A^n) = n \\times \\log(A)",
+          "explanation": "The log of a power equals the exponent times the log. Raising to a power multiplies the exponent.",
+          "example": "log(10^5) = 5 × log(10) = 5 × 1 = 5 ✓"
+        },
+        {
+          "type": "narrative",
+          "content": "These properties are incredibly useful in biology. For example, they allow us to convert multiplicative relationships (like growth factors) into additive ones (which are easier to analyze and graph)."
+        },
+        {
+          "type": "visualization",
+          "component": "CompressionDemo"
+        },
+        {
+          "type": "application",
+          "title": "Why These Properties Matter in Biology",
+          "content": "When analyzing data that spans many orders of magnitude (like cell counts from 10 to 10,000,000), logarithms compress the range and reveal patterns. The properties above let us work with these compressed values algebraically."
+        },
+        {
+          "type": "keyPoint",
+          "points": [
+            "Product Rule: log(A×B) = log(A) + log(B)",
+            "Quotient Rule: log(A/B) = log(A) - log(B)",
+            "Power Rule: log(A^n) = n × log(A)",
+            "These convert multiplication → addition, division → subtraction"
+          ]
+        }
+      ]
+    }
+  ]
+}

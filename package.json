@@ -1,0 +1,27 @@
+{
+  "name": "logarithms-in-biology",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Interactive educational platform teaching logarithms through biological applications",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "d3": "^7.9.0",
+    "katex": "^0.16.27",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-router-dom": "^7.11.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
+    "vite": "^6.4.1"
+  }
+}

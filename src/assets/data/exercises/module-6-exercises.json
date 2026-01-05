@@ -1,0 +1,85 @@
+{
+  "moduleId": "module-6",
+  "exercises": {
+    "conceptual": [
+      {
+        "id": "m6-c1",
+        "question": "Why do humans perceive sound intensity logarithmically rather than linearly?",
+        "type": "free-response",
+        "hints": ["Consider the range of intensities we need to detect"],
+        "solution": {
+          "summary": "The logarithmic response compresses a 12-order-of-magnitude range into a manageable perceptual scale.",
+          "detailed": "We need to hear both rustling leaves (10⁻¹² W/m²) and jet engines (1 W/m²). A linear response would mean either extreme sensitivity to quiet sounds (making loud sounds painful) or insensitivity to soft sounds. Logarithmic perception lets us handle this enormous range."
+        }
+      }
+    ],
+    "computational": [
+      {
+        "id": "m6-p1",
+        "question": "How many decibels is a sound with intensity 10⁻⁶ W/m²?",
+        "type": "numerical",
+        "answer": 60,
+        "tolerance": 0,
+        "unit": "dB",
+        "hints": ["dB = 10 × log₁₀(I/10⁻¹²)"],
+        "solution": {
+          "summary": "60 dB",
+          "detailed": "dB = 10 × log₁₀(10⁻⁶/10⁻¹²) = 10 × log₁₀(10⁶) = 10 × 6 = 60 dB. This is typical of normal conversation."
+        }
+      },
+      {
+        "id": "m6-p2",
+        "question": "A lawn mower (90 dB) is how many times more intense than conversation (60 dB)?",
+        "type": "numerical",
+        "answer": 1000,
+        "tolerance": 0,
+        "hints": ["30 dB difference = how many powers of 10?"],
+        "solution": {
+          "summary": "1000× (or 10³)",
+          "detailed": "Difference = 30 dB = 3 × 10 dB. Each 10 dB = 10× intensity. So 30 dB = 10³ = 1000× more intense."
+        }
+      },
+      {
+        "id": "m6-p3",
+        "question": "If two identical sounds at 70 dB play together, what is the combined level?",
+        "type": "numerical",
+        "answer": 73,
+        "tolerance": 0.5,
+        "unit": "dB",
+        "hints": ["Intensities add, then convert back to dB"],
+        "solution": {
+          "summary": "73 dB",
+          "detailed": "Two equal intensities sum to 2×I. dB change = 10×log₁₀(2) = 10×0.301 = 3 dB. So 70 + 3 = 73 dB. Doubling intensity adds only 3 dB!"
+        }
+      }
+    ],
+    "applied": [
+      {
+        "id": "m6-a1",
+        "question": "Hearing damage occurs with prolonged exposure above 85 dB. How many times more intense is 100 dB (loud club) than 85 dB?",
+        "type": "numerical",
+        "answer": 32,
+        "tolerance": 2,
+        "hints": ["15 dB difference = 10^1.5"],
+        "solution": {
+          "summary": "About 32× more intense",
+          "detailed": "Difference = 15 dB. Intensity ratio = 10^(15/10) = 10^1.5 ≈ 31.6 ≈ 32×. This is why clubs can damage hearing so quickly."
+        }
+      }
+    ],
+    "challenge": [
+      {
+        "id": "m6-ch1",
+        "question": "The apparent magnitude scale for star brightness is logarithmic: m = -2.5×log₁₀(I/I₀). A difference of 5 magnitudes corresponds to what intensity ratio?",
+        "type": "numerical",
+        "answer": 100,
+        "tolerance": 0,
+        "hints": ["5 = 2.5 × log₁₀(ratio)"],
+        "solution": {
+          "summary": "100×",
+          "detailed": "5 = 2.5 × log₁₀(ratio), so log₁₀(ratio) = 2, meaning ratio = 100. The magnitude scale was designed so that 5 magnitudes = 100× brightness difference."
+        }
+      }
+    ]
+  }
+}

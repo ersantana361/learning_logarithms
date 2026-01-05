@@ -1,0 +1,203 @@
+{
+  "moduleId": "module-2",
+  "lessons": [
+    {
+      "id": "ph-definition",
+      "title": "What is pH?",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "In 1909, Danish biochemist Soren Sorensen introduced a revolutionary way to measure acidity: the **pH scale**. Rather than dealing with unwieldy numbers like 0.0000001 moles per liter of hydrogen ions, he proposed using the negative logarithm of hydrogen ion concentration."
+        },
+        {
+          "type": "definition",
+          "term": "pH (Power of Hydrogen)",
+          "definition": "pH = -log₁₀[H⁺], where [H⁺] is the concentration of hydrogen ions in moles per liter (M). The pH scale typically runs from 0 to 14, with 7 being neutral."
+        },
+        {
+          "type": "math",
+          "equation": "\\text{pH} = -\\log_{10}[\\text{H}^+]",
+          "explanation": "The negative sign converts the typically negative exponent into a positive, more intuitive number."
+        },
+        {
+          "type": "visualization",
+          "component": "PHSpectrum"
+        },
+        {
+          "type": "keyPoint",
+          "points": [
+            "pH is a logarithmic scale - each unit represents a 10-fold change in H⁺ concentration",
+            "Lower pH = more acidic (more H⁺ ions)",
+            "Higher pH = more basic/alkaline (fewer H⁺ ions)",
+            "pH 7 is neutral (equal H⁺ and OH⁻ ions)"
+          ]
+        },
+        {
+          "type": "example",
+          "title": "pH Values in Nature",
+          "examples": [
+            { "exponential": "[H⁺] = 10⁻¹ M", "logarithmic": "pH = 1", "note": "Stomach acid" },
+            { "exponential": "[H⁺] = 10⁻⁷ M", "logarithmic": "pH = 7", "note": "Pure water" },
+            { "exponential": "[H⁺] = 10⁻¹⁴ M", "logarithmic": "pH = 14", "note": "Strong base" }
+          ]
+        },
+        {
+          "type": "practice",
+          "question": "If a solution has [H⁺] = 10⁻⁵ M, what is its pH?",
+          "hint": "Remember: pH = -log₁₀[H⁺]",
+          "answer": "pH = -log₁₀(10⁻⁵) = -(-5) = 5"
+        }
+      ]
+    },
+    {
+      "id": "ph-calculations",
+      "title": "Converting Between pH and [H⁺]",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "Converting between pH and hydrogen ion concentration is a fundamental skill in chemistry and biology. The logarithmic relationship means we can move between these representations using two key formulas."
+        },
+        {
+          "type": "property",
+          "name": "pH to [H⁺] Conversion",
+          "formula": "[\\text{H}^+] = 10^{-\\text{pH}}",
+          "explanation": "To find the hydrogen ion concentration from pH, raise 10 to the power of negative pH.",
+          "example": "If pH = 4, then [H⁺] = 10⁻⁴ = 0.0001 M"
+        },
+        {
+          "type": "property",
+          "name": "[H⁺] to pH Conversion",
+          "formula": "\\text{pH} = -\\log_{10}[\\text{H}^+]",
+          "explanation": "To find pH from hydrogen ion concentration, take the negative logarithm base 10.",
+          "example": "If [H⁺] = 0.001 M = 10⁻³ M, then pH = 3"
+        },
+        {
+          "type": "visualization",
+          "component": "HydrogenIonCalculator"
+        },
+        {
+          "type": "narrative",
+          "content": "**Why the negative sign?** Hydrogen ion concentrations in aqueous solutions are typically very small (between 10⁰ and 10⁻¹⁴ M). Taking the negative of the log converts these negative exponents into positive, more intuitive pH values between 0 and 14."
+        },
+        {
+          "type": "keyPoint",
+          "points": [
+            "Each pH unit change = 10× change in [H⁺]",
+            "pH 6 has 10× more H⁺ than pH 7",
+            "pH 5 has 100× more H⁺ than pH 7",
+            "pH 3 has 10,000× more H⁺ than pH 7"
+          ]
+        },
+        {
+          "type": "practice",
+          "question": "Blood has a pH of 7.4. What is its [H⁺] concentration?",
+          "hint": "Use [H⁺] = 10⁻ᵖᴴ",
+          "answer": "[H⁺] = 10⁻⁷·⁴ ≈ 4 × 10⁻⁸ M (about 40 nanomolar)"
+        }
+      ]
+    },
+    {
+      "id": "biological-ph",
+      "title": "pH in Living Systems",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "Living organisms are exquisitely sensitive to pH changes. Most biological processes operate within narrow pH ranges, and even small deviations can have dramatic effects on enzyme function, protein structure, and cellular processes."
+        },
+        {
+          "type": "comparison",
+          "title": "pH Ranges in the Human Body",
+          "items": [
+            {
+              "type": "Blood (pH 7.35-7.45)",
+              "uses": ["Oxygen transport", "Enzyme function", "Cell signaling"],
+              "reason": "Hemoglobin's oxygen affinity is pH-dependent (Bohr effect)"
+            },
+            {
+              "type": "Stomach (pH 1.5-3.5)",
+              "uses": ["Protein digestion", "Killing pathogens", "Activating pepsin"],
+              "reason": "Acidic environment denatures proteins and kills bacteria"
+            }
+          ]
+        },
+        {
+          "type": "definition",
+          "term": "Buffering",
+          "definition": "The ability of a solution to resist pH changes when acid or base is added. Blood uses the bicarbonate buffer system (CO₂/HCO₃⁻) to maintain pH around 7.4."
+        },
+        {
+          "type": "narrative",
+          "content": "**Acidosis and Alkalosis**: Blood pH below 7.35 is called acidosis, while pH above 7.45 is alkalosis. Both conditions can be life-threatening. The body uses respiratory and renal mechanisms to maintain pH homeostasis."
+        },
+        {
+          "type": "keyPoint",
+          "points": [
+            "Blood pH is tightly regulated between 7.35 and 7.45",
+            "A pH change of 0.1 represents a 26% change in [H⁺]",
+            "Enzymes have optimal pH ranges for activity",
+            "Extreme pH can denature proteins and disrupt membranes"
+          ]
+        },
+        {
+          "type": "application",
+          "title": "Clinical Application",
+          "content": "Doctors monitor blood pH through arterial blood gas tests. Metabolic conditions like diabetes can cause acidosis, while hyperventilation can cause alkalosis. Treatment involves addressing the underlying cause and may include IV bicarbonate or adjusting breathing."
+        },
+        {
+          "type": "practice",
+          "question": "If blood pH drops from 7.4 to 7.1, by what factor has [H⁺] increased?",
+          "hint": "Calculate [H⁺] at each pH and find the ratio",
+          "answer": "[H⁺] at 7.4 = 10⁻⁷·⁴ ≈ 4×10⁻⁸ M; [H⁺] at 7.1 = 10⁻⁷·¹ ≈ 8×10⁻⁸ M. Ratio ≈ 2× (doubled)"
+        }
+      ]
+    },
+    {
+      "id": "ocean-acidification",
+      "title": "Ocean Acidification: A Global Challenge",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "The ocean absorbs about 30% of atmospheric CO₂, which reacts with seawater to form carbonic acid. This process, called **ocean acidification**, is lowering the pH of our oceans and threatening marine ecosystems worldwide."
+        },
+        {
+          "type": "math",
+          "equation": "\\text{CO}_2 + \\text{H}_2\\text{O} \\rightarrow \\text{H}_2\\text{CO}_3 \\rightarrow \\text{H}^+ + \\text{HCO}_3^-",
+          "explanation": "Carbon dioxide dissolves in water to form carbonic acid, which releases hydrogen ions and lowers pH."
+        },
+        {
+          "type": "visualization",
+          "component": "OceanAcidificationChart"
+        },
+        {
+          "type": "narrative",
+          "content": "Since pre-industrial times, ocean pH has dropped from about 8.18 to 8.04. While this may seem small, remember that pH is logarithmic: this represents a **30% increase** in hydrogen ion concentration."
+        },
+        {
+          "type": "keyPoint",
+          "points": [
+            "Ocean pH has dropped 0.1 units since 1850 (30% more acidic)",
+            "Lower pH reduces carbonate availability for shell-forming organisms",
+            "Coral reefs, shellfish, and plankton are particularly vulnerable",
+            "Effects cascade through marine food webs"
+          ]
+        },
+        {
+          "type": "definition",
+          "term": "Carbonate Saturation",
+          "definition": "The concentration of carbonate ions (CO₃²⁻) in seawater. When pH drops, more carbonate converts to bicarbonate, making it harder for organisms to build calcium carbonate shells and skeletons."
+        },
+        {
+          "type": "application",
+          "title": "Impacts on Marine Life",
+          "content": "Pteropods (sea butterflies) are already showing shell dissolution in some regions. Coral growth rates have slowed. Oyster hatcheries on the US West Coast have experienced massive die-offs linked to acidified water. By 2100, under high-emission scenarios, ocean pH could drop to 7.7—more acidic than any time in the past 20 million years."
+        },
+        {
+          "type": "practice",
+          "question": "If ocean pH drops from 8.1 to 7.8, by what factor does [H⁺] increase?",
+          "hint": "Find the ratio 10⁻⁷·⁸/10⁻⁸·¹ = 10^(8.1-7.8) = 10^0.3",
+          "answer": "10^0.3 ≈ 2, so [H⁺] approximately doubles (100% increase)"
+        }
+      ]
+    }
+  ]
+}

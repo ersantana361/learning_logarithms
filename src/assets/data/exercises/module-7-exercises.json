@@ -1,0 +1,75 @@
+{
+  "moduleId": "module-7",
+  "exercises": {
+    "conceptual": [
+      {
+        "id": "m7-c1",
+        "question": "Explain what happens to reaction velocity as substrate concentration increases from much less than Km to much greater than Km.",
+        "type": "free-response",
+        "hints": ["Consider the MM equation at extreme [S] values"],
+        "solution": {
+          "summary": "Velocity transitions from first-order (linear with [S]) to zero-order (independent of [S]).",
+          "detailed": "At [S] << Km: V ≈ (Vmax/Km)[S], linear increase. At [S] >> Km: V ≈ Vmax, constant (enzyme saturated). The Km marks the transition point, where V = Vmax/2."
+        }
+      }
+    ],
+    "computational": [
+      {
+        "id": "m7-p1",
+        "question": "An enzyme has Vmax = 100 μmol/min and Km = 5 mM. What is V when [S] = 15 mM?",
+        "type": "numerical",
+        "answer": 75,
+        "tolerance": 2,
+        "unit": "μmol/min",
+        "hints": ["V = Vmax×[S]/(Km+[S])"],
+        "solution": {
+          "summary": "75 μmol/min",
+          "detailed": "V = 100 × 15/(5+15) = 100 × 15/20 = 100 × 0.75 = 75 μmol/min."
+        }
+      },
+      {
+        "id": "m7-p2",
+        "question": "What [S] is needed to achieve 90% of Vmax?",
+        "type": "numerical",
+        "answer": 9,
+        "tolerance": 0.5,
+        "unit": "×Km",
+        "hints": ["0.9Vmax = Vmax×[S]/(Km+[S])"],
+        "solution": {
+          "summary": "9×Km",
+          "detailed": "0.9 = [S]/(Km+[S]). Solving: 0.9Km + 0.9[S] = [S], so 0.9Km = 0.1[S], giving [S] = 9Km."
+        }
+      }
+    ],
+    "applied": [
+      {
+        "id": "m7-a1",
+        "question": "A drug inhibitor increases apparent Km from 5 mM to 15 mM without changing Vmax. What type of inhibition is this?",
+        "type": "multiple-choice",
+        "options": [
+          {"id": "a", "text": "Competitive", "correct": true},
+          {"id": "b", "text": "Noncompetitive"},
+          {"id": "c", "text": "Uncompetitive"},
+          {"id": "d", "text": "Mixed"}
+        ],
+        "hints": ["What parameters change with each inhibitor type?"],
+        "solution": {
+          "summary": "Competitive inhibition",
+          "detailed": "Competitive inhibitors increase apparent Km (reduce apparent affinity) but don't affect Vmax (can be overcome at high [S]). This pattern—Km increases, Vmax unchanged—is diagnostic of competitive inhibition."
+        }
+      }
+    ],
+    "challenge": [
+      {
+        "id": "m7-ch1",
+        "question": "The Lineweaver-Burk equation is 1/V = (Km/Vmax)(1/[S]) + 1/Vmax. If the y-intercept is 0.02 and slope is 0.1, what are Vmax and Km?",
+        "type": "free-response",
+        "hints": ["y-intercept = 1/Vmax, slope = Km/Vmax"],
+        "solution": {
+          "summary": "Vmax = 50, Km = 5",
+          "detailed": "y-intercept = 1/Vmax = 0.02, so Vmax = 50. Slope = Km/Vmax = 0.1, so Km = 0.1 × 50 = 5."
+        }
+      }
+    ]
+  }
+}

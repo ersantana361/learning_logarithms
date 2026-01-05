@@ -1,0 +1,277 @@
+{
+  "moduleId": "module-4",
+  "exercises": {
+    "conceptual": [
+      {
+        "id": "m4-c1",
+        "question": "Explain why first-order elimination kinetics results in a straight line when plotted on a semi-log graph.",
+        "type": "free-response",
+        "hints": [
+          "Write the first-order equation: C = C₀e^(-kt)",
+          "Take the natural log of both sides"
+        ],
+        "solution": {
+          "summary": "Taking ln of C = C₀e^(-kt) gives ln(C) = ln(C₀) - kt, which is linear in time.",
+          "detailed": "For first-order kinetics: C = C₀e^(-kt). Taking ln: ln(C) = ln(C₀) + ln(e^(-kt)) = ln(C₀) - kt. This has the form y = b + mx, a straight line with slope -k and y-intercept ln(C₀). On a semi-log plot (log concentration vs linear time), the data falls on a straight line, confirming first-order kinetics."
+        }
+      },
+      {
+        "id": "m4-c2",
+        "question": "Why does time to reach steady state depend only on half-life and not on dose or dosing interval?",
+        "type": "free-response",
+        "hints": [
+          "Think about what determines how quickly drug accumulates",
+          "Consider the fraction that remains from each previous dose"
+        ],
+        "solution": {
+          "summary": "Steady state occurs when drug accumulation (from new doses) equals elimination. The rate of approach depends only on how fast drug is cleared (half-life), not on how much is given.",
+          "detailed": "Each dose adds to existing drug, but existing drug is being eliminated at rate k. The approach to steady state follows: Css × (1 - e^(-kt)). This depends only on k (or equivalently, t½). Larger doses just scale Css proportionally. The shape of the approach curve—always reaching ~90% of steady state after 3.3 half-lives—is independent of dose."
+        }
+      },
+      {
+        "id": "m4-c3",
+        "question": "A patient on warfarin has supratherapeutic INR levels. The half-life is 40 hours. How long should they wait before rechecking?",
+        "type": "free-response",
+        "hints": [
+          "New steady state takes 4-5 half-lives after dose change",
+          "Calculate 4-5 × 40 hours"
+        ],
+        "solution": {
+          "summary": "Wait 5-8 days (4-5 half-lives = 160-200 hours) before rechecking.",
+          "detailed": "After a dose adjustment, the new steady state is reached after 4-5 half-lives. For warfarin (t½ = 40 hr), this is 160-200 hours = 6.7-8.3 days. Checking sooner may not reflect the true new steady-state level. This is why warfarin dose adjustments require patience and regular monitoring."
+        }
+      },
+      {
+        "id": "m4-c4",
+        "question": "Explain why a loading dose is sometimes used when starting therapy with a drug that has a long half-life.",
+        "type": "free-response",
+        "hints": [
+          "Consider how long it takes to reach therapeutic levels normally",
+          "Think about situations where you need immediate drug effect"
+        ],
+        "solution": {
+          "summary": "Long half-life means slow accumulation to steady state. A loading dose immediately achieves therapeutic levels rather than waiting 4-5 half-lives.",
+          "detailed": "Without a loading dose, a drug with t½ = 24 hr takes 4-5 days to reach steady state. If immediate effect is needed (e.g., anticoagulation, seizure prevention), this delay is unacceptable. A loading dose = (maintenance dose) × (accumulation factor) approximates steady-state levels immediately. Then maintenance doses sustain this level."
+        }
+      },
+      {
+        "id": "m4-c5",
+        "question": "Why might a drug's half-life vary between patients, and how does this affect dosing?",
+        "type": "free-response",
+        "hints": [
+          "Consider what determines drug clearance",
+          "Think about age, organ function, and genetics"
+        ],
+        "solution": {
+          "summary": "Half-life depends on clearance (liver/kidney function) and volume of distribution (body composition). These vary with age, disease, genetics, and drug interactions.",
+          "detailed": "Since t½ = 0.693 × Vd/CL, factors affecting either Vd or clearance affect half-life. Kidney disease decreases clearance of renally-eliminated drugs. Liver disease affects hepatically-metabolized drugs. Elderly often have reduced function. Genetic polymorphisms in drug-metabolizing enzymes cause fast/slow metabolizer phenotypes. Drug interactions can inhibit or induce metabolism. Personalized dosing accounts for these variations."
+        }
+      }
+    ],
+    "computational": [
+      {
+        "id": "m4-p1",
+        "question": "A drug has an elimination half-life of 8 hours. What is the elimination rate constant k?",
+        "type": "numerical",
+        "answer": 0.087,
+        "tolerance": 0.005,
+        "unit": "/hour",
+        "hints": [
+          "k = ln(2)/t½ = 0.693/t½"
+        ],
+        "solution": {
+          "summary": "k = 0.087/hr",
+          "detailed": "k = ln(2)/t½ = 0.693/8 = 0.0866 ≈ 0.087 per hour. This means approximately 8.7% of the drug is eliminated each hour."
+        }
+      },
+      {
+        "id": "m4-p2",
+        "question": "After IV administration, drug concentration is 100 mg/L. With k = 0.2/hr, what is the concentration after 6 hours?",
+        "type": "numerical",
+        "answer": 30,
+        "tolerance": 2,
+        "unit": "mg/L",
+        "hints": [
+          "C(t) = C₀ × e^(-kt)"
+        ],
+        "solution": {
+          "summary": "About 30 mg/L",
+          "detailed": "C(6) = 100 × e^(-0.2×6) = 100 × e^(-1.2) = 100 × 0.301 = 30.1 mg/L. The drug has been reduced to about 30% of its initial concentration."
+        }
+      },
+      {
+        "id": "m4-p3",
+        "question": "A patient takes 500 mg every 12 hours. If t½ = 12 hours, what is the accumulation factor?",
+        "type": "numerical",
+        "answer": 2,
+        "tolerance": 0.1,
+        "hints": [
+          "When τ = t½, accumulation factor = 1/(1-0.5)"
+        ],
+        "solution": {
+          "summary": "R = 2",
+          "detailed": "When dosing interval equals half-life: k×τ = 0.693, so e^(-kτ) = 0.5. Accumulation factor R = 1/(1-0.5) = 2. Steady-state levels are exactly twice what they would be after a single dose."
+        }
+      },
+      {
+        "id": "m4-p4",
+        "question": "How long does it take for 90% of a drug (t½ = 4 hours) to be eliminated?",
+        "type": "numerical",
+        "answer": 13.3,
+        "tolerance": 0.5,
+        "unit": "hours",
+        "hints": [
+          "10% remaining means C/C₀ = 0.1",
+          "Solve 0.1 = e^(-kt) for t"
+        ],
+        "solution": {
+          "summary": "About 13.3 hours",
+          "detailed": "0.1 = e^(-kt). Taking ln: ln(0.1) = -kt, so t = -ln(0.1)/k = 2.303/k. With k = 0.693/4 = 0.173/hr: t = 2.303/0.173 = 13.3 hours. This is 3.32 half-lives (since ln(10)/ln(2) = 3.32)."
+        }
+      },
+      {
+        "id": "m4-p5",
+        "question": "A drug has Css,max = 15 mg/L and Css,min = 5 mg/L. What is the percent fluctuation?",
+        "type": "numerical",
+        "answer": 200,
+        "tolerance": 10,
+        "unit": "%",
+        "hints": [
+          "Fluctuation = (Cmax - Cmin)/Cmin × 100%"
+        ],
+        "solution": {
+          "summary": "200%",
+          "detailed": "Percent fluctuation = (15 - 5)/5 × 100% = 10/5 × 100% = 200%. The peak is 3× the trough. High fluctuation may indicate the dosing interval is too long relative to half-life."
+        }
+      }
+    ],
+    "applied": [
+      {
+        "id": "m4-a1",
+        "question": "Gentamicin (t½ = 2.5 hr) is given as 120 mg IV every 8 hours. If the peak is 8 mg/L after the first dose, what is the steady-state peak?",
+        "type": "numerical",
+        "answer": 8.5,
+        "tolerance": 0.5,
+        "unit": "mg/L",
+        "hints": [
+          "Calculate k = 0.693/2.5 = 0.277/hr",
+          "Find accumulation factor R"
+        ],
+        "solution": {
+          "summary": "About 8.5 mg/L",
+          "detailed": "k = 0.693/2.5 = 0.277/hr. Accumulation factor R = 1/(1-e^(-0.277×8)) = 1/(1-e^(-2.22)) = 1/(1-0.109) = 1.12. Css,peak = 8 × 1.12 = 8.96 ≈ 9 mg/L. Since gentamicin is eliminated quickly, there's minimal accumulation."
+        }
+      },
+      {
+        "id": "m4-a2",
+        "question": "A patient on digoxin (t½ = 36 hr) has a toxic level of 3.0 ng/mL (therapeutic: 0.5-2.0). Approximately when will levels reach the therapeutic range?",
+        "type": "numerical",
+        "answer": 36,
+        "tolerance": 5,
+        "unit": "hours",
+        "hints": [
+          "Need to go from 3.0 to about 2.0 ng/mL",
+          "That's a decrease to 2/3 of current level"
+        ],
+        "solution": {
+          "summary": "About 36 hours (1 half-life)",
+          "detailed": "Need 3.0 → 2.0, a decrease to 67% (2/3). Fraction remaining = e^(-kt) = 2/3. -kt = ln(2/3) = -0.405. t = 0.405/k = 0.405 × 36/0.693 = 21 hours. More conservatively, one half-life (36 hr) brings it to 1.5 ng/mL, safely in range. Monitor closely and hold doses until therapeutic."
+        }
+      },
+      {
+        "id": "m4-a3",
+        "question": "A drug has MEC = 20 mg/L and MTC = 60 mg/L. With a 100 mg dose (peak = 50 mg/L), t½ = 6 hr, and dosing every 12 hr, what percentage of time is the drug in the therapeutic range?",
+        "type": "multiple-choice",
+        "options": [
+          {"id": "a", "text": "25%"},
+          {"id": "b", "text": "50%"},
+          {"id": "c", "text": "75%", "correct": true},
+          {"id": "d", "text": "100%"}
+        ],
+        "hints": [
+          "After 12 hr, concentration = 50 × (0.5)² = 12.5 mg/L",
+          "Find when concentration crosses 20 mg/L"
+        ],
+        "solution": {
+          "summary": "About 75%",
+          "detailed": "Peak = 50 mg/L (therapeutic). After 12 hr: 50 × 0.25 = 12.5 mg/L (subtherapeutic). Drops below 20 mg/L when: 20 = 50×e^(-kt). t = ln(50/20)/k = ln(2.5)/0.116 = 7.9 hr. So ~8 hr therapeutic out of 12 hr = 67-75% in range. (First dose only; at steady state, trough would be higher.)"
+        }
+      },
+      {
+        "id": "m4-a4",
+        "question": "To quickly achieve therapeutic levels of a drug with t½ = 24 hours, a loading dose of 800 mg is given, followed by 200 mg daily. Estimate the maintenance dose accumulation factor.",
+        "type": "numerical",
+        "answer": 4,
+        "tolerance": 0.5,
+        "hints": [
+          "Loading dose / maintenance dose ≈ accumulation factor",
+          "Also: R = 1/(1-e^(-0.693)) when τ = t½"
+        ],
+        "solution": {
+          "summary": "R ≈ 4",
+          "detailed": "Loading dose (800 mg) / maintenance dose (200 mg) = 4. This approximates the accumulation factor. Alternatively: for τ = 24 hr = t½, R = 1/(1-e^(-0.693)) = 1/0.5 = 2. The higher loading suggests they want faster therapeutic levels, or t½ might be longer than 24 hr."
+        }
+      },
+      {
+        "id": "m4-a5",
+        "question": "Caffeine has t½ ≈ 5 hours. If you drink a cup of coffee (100 mg caffeine) at 8 AM, approximately how much remains at midnight?",
+        "type": "numerical",
+        "answer": 6,
+        "tolerance": 2,
+        "unit": "mg",
+        "hints": [
+          "8 AM to midnight = 16 hours",
+          "That's 16/5 = 3.2 half-lives"
+        ],
+        "solution": {
+          "summary": "About 6-7 mg",
+          "detailed": "16 hours = 3.2 half-lives. Remaining = 100 × (0.5)^3.2 = 100 × 0.109 = 10.9 mg. Or using C = C₀e^(-kt): k = 0.693/5 = 0.139/hr, C = 100 × e^(-0.139×16) = 100 × 0.109 = 11 mg. Still enough to affect sleep in sensitive individuals!"
+        }
+      }
+    ],
+    "challenge": [
+      {
+        "id": "m4-ch1",
+        "question": "Derive the formula for steady-state peak concentration (Css,max) in terms of dose (D), volume of distribution (Vd), elimination constant (k), and dosing interval (τ).",
+        "type": "free-response",
+        "hints": [
+          "At steady state, each dose adds D/Vd to concentration",
+          "Sum the geometric series of contributions from all previous doses"
+        ],
+        "solution": {
+          "summary": "Css,max = (D/Vd) × 1/(1-e^(-kτ))",
+          "detailed": "Just after a dose at steady state, concentration = sum of residuals from all previous doses plus current dose. This is a geometric series: C = (D/Vd)[1 + e^(-kτ) + e^(-2kτ) + ...] = (D/Vd) × 1/(1-e^(-kτ)). The term 1/(1-e^(-kτ)) is the accumulation factor R. So Css,max = (D/Vd) × R."
+        }
+      },
+      {
+        "id": "m4-ch2",
+        "question": "A two-compartment model shows that aminoglycosides have α (distribution) t½ = 0.5 hr and β (elimination) t½ = 3 hr. If peak is 10 mg/L, what is the concentration at 6 hours assuming primarily β-phase?",
+        "type": "numerical",
+        "answer": 2.5,
+        "tolerance": 0.3,
+        "unit": "mg/L",
+        "hints": [
+          "After distribution phase (2-3 α half-lives), use β half-life",
+          "6 hr = 2 β half-lives"
+        ],
+        "solution": {
+          "summary": "About 2.5 mg/L",
+          "detailed": "The α phase redistributes drug to tissues quickly. After ~2 hours, we're in β (elimination) phase. At 6 hours (2 β half-lives from early time points): If we assume C at start of β phase ≈ 10 × (0.5)^(2/3) ≈ 6 mg/L (rough), then at 6 hr: 6 × (0.5)^2 = 1.5 mg/L. Alternatively, simply: 10 × (0.5)^2 = 2.5 mg/L using 6 hr = 2 half-lives from peak."
+        }
+      },
+      {
+        "id": "m4-ch3",
+        "question": "For drugs with saturable elimination (Michaelis-Menten kinetics), explain why half-life increases with dose, unlike first-order drugs.",
+        "type": "free-response",
+        "hints": [
+          "Consider what happens when drug concentration >> Km",
+          "Think about the rate equation: rate = Vmax×C/(Km+C)"
+        ],
+        "solution": {
+          "summary": "At high concentrations, elimination rate becomes constant (Vmax), not proportional to C. The fixed-rate elimination takes longer to clear higher concentrations.",
+          "detailed": "For Michaelis-Menten kinetics: rate = Vmax×C/(Km+C). At low C << Km: rate ≈ (Vmax/Km)×C (first-order). At high C >> Km: rate ≈ Vmax (zero-order). In zero-order, a fixed amount (not fraction) is eliminated per time. So if you double the dose, it takes twice as long to eliminate—apparent half-life doubles. This is seen with alcohol, phenytoin, and aspirin at high doses. It makes dosing more dangerous and less predictable."
+        }
+      }
+    ]
+  }
+}

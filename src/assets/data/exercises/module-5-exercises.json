@@ -1,0 +1,91 @@
+{
+  "moduleId": "module-5",
+  "exercises": {
+    "conceptual": [
+      {
+        "id": "m5-c1",
+        "question": "Explain why power law relationships appear as straight lines on log-log plots.",
+        "type": "free-response",
+        "hints": ["Take log of both sides of Y = aX^b"],
+        "solution": {
+          "summary": "log(Y) = log(a) + b×log(X), which is linear with slope b.",
+          "detailed": "For Y = aX^b, taking log: log(Y) = log(a) + b×log(X). This has the form y = c + mx, a straight line with slope b and y-intercept log(a). The slope directly gives the scaling exponent."
+        }
+      },
+      {
+        "id": "m5-c2",
+        "question": "Why does Kleiber's Law (B ∝ M^0.75) have the exponent 3/4 rather than 1?",
+        "type": "free-response",
+        "hints": ["Consider heat dissipation and surface area"],
+        "solution": {
+          "summary": "Surface area-to-volume constraints and fractal distribution networks may explain the 3/4 exponent.",
+          "detailed": "If metabolism scaled as M^1, larger animals couldn't dissipate heat fast enough (surface area scales as M^0.67). The 0.75 exponent may reflect fractal-like blood vessel networks that optimize nutrient delivery across all body sizes."
+        }
+      }
+    ],
+    "computational": [
+      {
+        "id": "m5-p1",
+        "question": "If metabolic rate B = 70×M^0.75 (M in kg, B in kcal/day), what is the metabolic rate for a 70 kg human?",
+        "type": "numerical",
+        "answer": 1700,
+        "tolerance": 100,
+        "unit": "kcal/day",
+        "hints": ["Calculate 70 × (70)^0.75"],
+        "solution": {
+          "summary": "About 1700 kcal/day",
+          "detailed": "B = 70 × 70^0.75 = 70 × 24.2 = 1694 ≈ 1700 kcal/day. This is close to the basal metabolic rate measured in humans."
+        }
+      },
+      {
+        "id": "m5-p2",
+        "question": "An elephant (4000 kg) has about what metabolic rate relative to a mouse (25 g)?",
+        "type": "multiple-choice",
+        "options": [
+          {"id": "a", "text": "160,000× higher"},
+          {"id": "b", "text": "16,000× higher"},
+          {"id": "c", "text": "5,000× higher", "correct": true},
+          {"id": "d", "text": "160× higher"}
+        ],
+        "hints": ["Ratio = (4000/0.025)^0.75"],
+        "solution": {
+          "summary": "About 5,000× higher",
+          "detailed": "Mass ratio = 4000/0.025 = 160,000. Metabolic ratio = 160,000^0.75 ≈ 5,040. Despite being 160,000× heavier, the elephant only needs about 5,000× more energy."
+        }
+      }
+    ],
+    "applied": [
+      {
+        "id": "m5-a1",
+        "question": "Heart rate scales as M^(-0.25). If a mouse (25g) has heart rate 600 bpm, estimate a horse's (500 kg) heart rate.",
+        "type": "numerical",
+        "answer": 40,
+        "tolerance": 5,
+        "unit": "bpm",
+        "hints": ["Ratio = (500/0.025)^(-0.25)"],
+        "solution": {
+          "summary": "About 40 bpm",
+          "detailed": "Mass ratio = 500/0.025 = 20,000. Heart rate ratio = 20,000^(-0.25) = 1/20,000^0.25 = 1/11.9 = 0.084. Horse HR ≈ 600 × 0.084 ≈ 50 bpm. (Actual: ~30-50 bpm)"
+        }
+      }
+    ],
+    "challenge": [
+      {
+        "id": "m5-ch1",
+        "question": "If metabolic rate ∝ M^0.75 and lifespan ∝ M^0.25, what is the relationship between total lifetime energy expenditure and body mass?",
+        "type": "multiple-choice",
+        "options": [
+          {"id": "a", "text": "Total energy ∝ M^0.5"},
+          {"id": "b", "text": "Total energy ∝ M^1.0", "correct": true},
+          {"id": "c", "text": "Total energy ∝ M^1.25"},
+          {"id": "d", "text": "Total energy is independent of M"}
+        ],
+        "hints": ["Total = rate × time"],
+        "solution": {
+          "summary": "Total energy ∝ M^1.0 (linear with mass!)",
+          "detailed": "Total lifetime energy = (metabolic rate) × (lifespan) ∝ M^0.75 × M^0.25 = M^1.0. All mammals burn roughly the same amount of energy per gram of tissue over their lifetimes—about 1 billion heartbeats, regardless of size!"
+        }
+      }
+    ]
+  }
+}

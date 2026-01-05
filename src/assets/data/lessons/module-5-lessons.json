@@ -1,0 +1,61 @@
+{
+  "moduleId": "module-5",
+  "lessons": [
+    {
+      "id": "power-laws",
+      "title": "Power Laws in Biology",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "Many biological relationships follow **power laws**: Y = aX^b. From metabolic rates scaling with body mass to heart rates varying across species, these patterns reveal fundamental principles about how organisms work. Logarithms are essential for discovering and analyzing these relationships."
+        },
+        {
+          "type": "definition",
+          "term": "Allometric Scaling",
+          "definition": "The study of how biological processes scale with body size. When a trait Y scales with size X according to Y = aX^b, the relationship is called allometric if b ≠ 1."
+        },
+        {
+          "type": "visualization",
+          "component": "LogLogPlotBuilder"
+        },
+        {
+          "type": "keyPoint",
+          "points": [
+            "Power laws appear as straight lines on log-log plots",
+            "The slope gives the exponent (scaling factor)",
+            "Kleiber's Law: metabolic rate ∝ mass^0.75",
+            "Heart rate ∝ mass^(-0.25)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kleibers-law",
+      "title": "Kleiber's Law and Metabolic Scaling",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "In 1932, Max Kleiber discovered that metabolic rate scales with body mass to the 3/4 power across all mammals. This **Kleiber's Law** (B ∝ M^0.75) has profound implications: larger animals are more energy-efficient per unit mass."
+        },
+        {
+          "type": "math",
+          "equation": "B = B_0 \\cdot M^{0.75}",
+          "explanation": "Metabolic rate B scales as body mass M to the 0.75 power, not M^1 as simple geometry would predict."
+        },
+        {
+          "type": "visualization",
+          "component": "SpeciesComparison"
+        },
+        {
+          "type": "keyPoint",
+          "points": [
+            "If metabolism scaled as M^1, larger animals would overheat",
+            "The 0.75 exponent may relate to fractal-like distribution networks",
+            "Lifespan scales as M^0.25 (larger animals live longer)",
+            "Heart rate scales as M^(-0.25) (larger animals have slower hearts)"
+          ]
+        }
+      ]
+    }
+  ]
+}

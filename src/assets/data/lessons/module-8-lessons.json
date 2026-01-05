@@ -1,0 +1,57 @@
+{
+  "moduleId": "module-8",
+  "lessons": [
+    {
+      "id": "species-area",
+      "title": "The Species-Area Relationship",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "One of ecology's most fundamental patterns is the **species-area relationship**: larger areas support more species. This power law relationship (S = cA^z) has critical implications for conservation, reserve design, and predicting extinction rates."
+        },
+        {
+          "type": "math",
+          "equation": "S = c \\cdot A^z",
+          "explanation": "Species richness S increases with area A according to a power law. The exponent z typically ranges from 0.2 to 0.35."
+        },
+        {
+          "type": "visualization",
+          "component": "SpeciesAreaExplorer"
+        },
+        {
+          "type": "keyPoint",
+          "points": [
+            "The relationship appears linear on a log-log plot",
+            "z ≈ 0.25 for islands, slightly higher for habitat fragments",
+            "Used to predict species loss from habitat destruction",
+            "Reducing area by 90% typically cuts species by 50%"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diversity-indices",
+      "title": "Diversity Indices and Logarithms",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "Ecologists use logarithm-based indices to measure biodiversity. The **Shannon diversity index** uses entropy (from information theory) to quantify how evenly species are distributed in a community."
+        },
+        {
+          "type": "math",
+          "equation": "H' = -\\sum_{i=1}^{S} p_i \\ln(p_i)",
+          "explanation": "Shannon diversity H' sums the product of each species' proportion (pᵢ) and its logarithm. Higher values indicate greater diversity."
+        },
+        {
+          "type": "keyPoint",
+          "points": [
+            "Shannon index increases with both species richness and evenness",
+            "Effective number of species = e^H'",
+            "Maximum H' = ln(S) when all species are equally abundant",
+            "Logarithms allow comparison across communities with different total abundances"
+          ]
+        }
+      ]
+    }
+  ]
+}

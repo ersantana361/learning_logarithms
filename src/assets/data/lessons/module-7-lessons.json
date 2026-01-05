@@ -1,0 +1,38 @@
+{
+  "moduleId": "module-7",
+  "lessons": [
+    {
+      "id": "michaelis-menten",
+      "title": "Michaelis-Menten Kinetics",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "Enzyme kinetics describes how fast enzymes catalyze reactions. The **Michaelis-Menten equation** shows a hyperbolic relationship between substrate concentration and reaction rate. Logarithmic transformations are used to determine kinetic parameters from experimental data."
+        },
+        {
+          "type": "math",
+          "equation": "V = \\frac{V_{max} \\cdot [S]}{K_m + [S]}",
+          "explanation": "Reaction velocity V depends on substrate concentration [S], maximum velocity Vmax, and the Michaelis constant Km."
+        },
+        {
+          "type": "visualization",
+          "component": "EnzymeKineticsCurve"
+        },
+        {
+          "type": "definition",
+          "term": "Km (Michaelis Constant)",
+          "definition": "The substrate concentration at which reaction velocity equals half of Vmax. Low Km indicates high enzyme-substrate affinity."
+        },
+        {
+          "type": "keyPoint",
+          "points": [
+            "Km = [S] when V = Vmax/2",
+            "At low [S]: V ≈ (Vmax/Km)[S] (first-order kinetics)",
+            "At high [S]: V ≈ Vmax (zero-order kinetics)",
+            "Lineweaver-Burk plot linearizes the equation using reciprocals"
+          ]
+        }
+      ]
+    }
+  ]
+}

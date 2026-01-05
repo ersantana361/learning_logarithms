@@ -1,0 +1,201 @@
+{
+  "moduleId": "module-3",
+  "lessons": [
+    {
+      "id": "exponential-growth",
+      "title": "Exponential Growth and Logarithms",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "When a population doubles every fixed time interval, it exhibits **exponential growth**. This pattern is fundamental to biology—from bacterial colonies to human populations. Understanding exponential growth requires understanding logarithms, because logarithms are the mathematical tool that 'undoes' exponential functions."
+        },
+        {
+          "type": "definition",
+          "term": "Exponential Growth",
+          "definition": "Growth where the rate of increase is proportional to the current size. If a population doubles every time period, N(t) = N₀ × 2^t, or equivalently, N(t) = N₀ × e^(rt) where r is the continuous growth rate."
+        },
+        {
+          "type": "math",
+          "equation": "N(t) = N_0 \\cdot e^{rt}",
+          "explanation": "N(t) is population at time t, N₀ is initial population, r is the continuous growth rate, and e ≈ 2.718 is the natural base."
+        },
+        {
+          "type": "visualization",
+          "component": "PopulationGrowthSimulator"
+        },
+        {
+          "type": "keyPoint",
+          "points": [
+            "Exponential growth has a constant doubling time: t₂ = ln(2)/r",
+            "Small changes in growth rate have large effects over time",
+            "Logarithms convert multiplication to addition, simplifying analysis",
+            "Taking ln of both sides: ln(N) = ln(N₀) + rt (a linear equation!)"
+          ]
+        },
+        {
+          "type": "practice",
+          "question": "A bacterial population doubles every 20 minutes. What is its continuous growth rate r?",
+          "hint": "Use t₂ = ln(2)/r and solve for r",
+          "answer": "r = ln(2)/20 ≈ 0.035 per minute, or about 2.1 per hour"
+        }
+      ]
+    },
+    {
+      "id": "log-scales",
+      "title": "Why Scientists Use Log Scales",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "When dealing with populations that span many orders of magnitude—from 10 bacteria to 10 billion—linear graphs become useless. The early data points become invisible dots at zero. **Logarithmic scales** solve this problem and reveal patterns hidden in exponential data."
+        },
+        {
+          "type": "visualization",
+          "component": "LinearVsLogScale"
+        },
+        {
+          "type": "property",
+          "name": "Exponential → Linear Transformation",
+          "formula": "\\ln(N) = \\ln(N_0) + rt",
+          "explanation": "Taking the natural log of the exponential equation transforms it into a linear equation. On a log scale, exponential growth appears as a straight line.",
+          "example": "If a population grows as N = 100×e^(0.2t), then ln(N) = ln(100) + 0.2t = 4.6 + 0.2t"
+        },
+        {
+          "type": "keyPoint",
+          "points": [
+            "Straight line on log scale = exponential growth",
+            "The slope of the log-linear plot equals the growth rate",
+            "Log scales compress large ranges into viewable graphs",
+            "Changes in growth rate become visible as changes in slope"
+          ]
+        },
+        {
+          "type": "comparison",
+          "title": "When to Use Each Scale",
+          "items": [
+            {
+              "type": "Linear Scale",
+              "uses": ["Comparing absolute values", "Data with similar magnitudes", "Additive changes"],
+              "reason": "Shows actual differences between values"
+            },
+            {
+              "type": "Logarithmic Scale",
+              "uses": ["Data spanning orders of magnitude", "Exponential growth/decay", "Multiplicative changes"],
+              "reason": "Reveals proportional relationships and exponential patterns"
+            }
+          ]
+        },
+        {
+          "type": "practice",
+          "question": "You plot bacterial counts on semi-log paper (log y-axis, linear x-axis) and get a straight line with slope 0.15 per hour. What is the doubling time?",
+          "hint": "Slope = r/ln(10), so r = slope × ln(10). Then t₂ = ln(2)/r",
+          "answer": "r = 0.15 × 2.303 ≈ 0.35/hr. Doubling time = ln(2)/0.35 ≈ 2 hours"
+        }
+      ]
+    },
+    {
+      "id": "bacterial-growth",
+      "title": "Bacterial Growth Phases",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "Bacterial populations in batch culture (closed container with fixed nutrients) show four distinct growth phases. Understanding these phases is crucial for microbiology, biotechnology, and medicine. The **log phase** is named specifically because cell numbers increase logarithmically (exponentially) during this period."
+        },
+        {
+          "type": "visualization",
+          "component": "BacterialGrowthCurve"
+        },
+        {
+          "type": "definition",
+          "term": "Lag Phase",
+          "definition": "The initial period when bacteria adapt to their new environment. Cells are metabolically active but not dividing. Duration depends on how different the new conditions are from the previous culture."
+        },
+        {
+          "type": "definition",
+          "term": "Log (Exponential) Phase",
+          "definition": "The period of maximum, constant exponential growth. Cell numbers double at a fixed interval (generation time). On a log plot, this phase appears as a straight line."
+        },
+        {
+          "type": "definition",
+          "term": "Stationary Phase",
+          "definition": "Growth rate equals death rate, so population size remains constant. Occurs when nutrients are depleted or toxic waste accumulates. Cells may enter dormancy or produce spores."
+        },
+        {
+          "type": "definition",
+          "term": "Death Phase",
+          "definition": "Cell death exceeds cell division. Population declines, often exponentially. May show a 'tail' of resistant survivors."
+        },
+        {
+          "type": "keyPoint",
+          "points": [
+            "The 'log phase' is named because log(N) increases linearly with time",
+            "Generation time (doubling time) is constant only during log phase",
+            "Most antibiotics work best during log phase when cells are dividing",
+            "Biotechnology harvests cells or products during late log/early stationary phase"
+          ]
+        },
+        {
+          "type": "application",
+          "title": "Clinical Application: Antibiotic Timing",
+          "content": "Antibiotics targeting cell wall synthesis (like penicillin) work only on actively dividing cells. This is why they're most effective during the log phase. Understanding growth kinetics helps determine optimal dosing timing in treating infections."
+        },
+        {
+          "type": "practice",
+          "question": "During log phase, E. coli has a generation time of 20 minutes. Starting with 1000 cells, how many cells after 2 hours?",
+          "hint": "Number of generations = 120min/20min = 6. N = N₀ × 2^(number of generations)",
+          "answer": "6 generations means 2⁶ = 64-fold increase. N = 1000 × 64 = 64,000 cells"
+        }
+      ]
+    },
+    {
+      "id": "doubling-time",
+      "title": "Doubling Time and Growth Rate",
+      "sections": [
+        {
+          "type": "narrative",
+          "content": "The **doubling time** (or generation time) is one of the most important parameters in population biology. It tells us how fast a population can grow and is directly related to the growth rate constant through a logarithmic relationship."
+        },
+        {
+          "type": "property",
+          "name": "Doubling Time Formula",
+          "formula": "t_2 = \\frac{\\ln(2)}{r} = \\frac{0.693}{r}",
+          "explanation": "The time required for a population to double is inversely proportional to the growth rate. Faster growth → shorter doubling time.",
+          "example": "If r = 0.1 per hour, doubling time = 0.693/0.1 = 6.93 hours"
+        },
+        {
+          "type": "math",
+          "equation": "r = \\frac{\\ln(N_t/N_0)}{t}",
+          "explanation": "The growth rate can be calculated from any two population measurements: take the natural log of their ratio and divide by the time elapsed."
+        },
+        {
+          "type": "example",
+          "title": "Calculating Growth Parameters",
+          "examples": [
+            { "exponential": "E. coli: t₂ = 20 min", "logarithmic": "r = 2.1/hr", "note": "Under optimal conditions" },
+            { "exponential": "Yeast: t₂ = 90 min", "logarithmic": "r = 0.46/hr", "note": "In rich medium" },
+            { "exponential": "Human population: t₂ = 70 years", "logarithmic": "r = 1%/yr", "note": "Historical average" }
+          ]
+        },
+        {
+          "type": "keyPoint",
+          "points": [
+            "Doubling time = ln(2)/r ≈ 0.693/r",
+            "For percentage growth rate: t₂ ≈ 70/rate (the 'Rule of 70')",
+            "Growth rate r can be found from the slope of a semi-log plot",
+            "Small differences in r lead to large differences over time"
+          ]
+        },
+        {
+          "type": "application",
+          "title": "The Rule of 70",
+          "content": "For population or financial growth at rate p percent per year, doubling time ≈ 70/p years. This approximation works because ln(2) ≈ 0.693 ≈ 70/100. At 2% growth, population doubles in ~35 years. At 7% growth, it doubles in ~10 years."
+        },
+        {
+          "type": "practice",
+          "question": "A tumor is growing at 5% per week. Approximately how long until it doubles in size?",
+          "hint": "Use the Rule of 70: t₂ ≈ 70/growth rate",
+          "answer": "t₂ ≈ 70/5 = 14 weeks"
+        }
+      ]
+    }
+  ]
+}
