@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef, useEffect } from 'react'
 import { useD3 } from '@hooks/useD3'
 import ChartContainer from '../shared/ChartContainer'
 import * as d3 from 'd3'
@@ -6,6 +6,22 @@ import * as d3 from 'd3'
 export default function LinearVsLogScale() {
   const [growthRate, setGrowthRate] = useState(0.2)
   const [timeSteps, setTimeSteps] = useState(30)
+  const [dimensions, setDimensions] = useState({ width: 300, height: 256 })
+  const linearContainerRef = useRef(null)
+  const logContainerRef = useRef(null)
+
+  // Track container dimensions
+  useEffect(() => {
+    if (!linearContainerRef.current) return
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const { width } = entry.contentRect
+        setDimensions({ width, height: 256 })
+      }
+    })
+    resizeObserver.observe(linearContainerRef.current)
+    return () => resizeObserver.disconnect()
+  }, [])
 
   const data = useMemo(() => {
     const points = []
@@ -18,8 +34,12 @@ export default function LinearVsLogScale() {
     return points
   }, [growthRate, timeSteps])
 
-  const linearRef = useD3((svg, { width, height }) => {
+  const linearRef = useD3((svg, dims) => {
+    if (!dims || dims.width <= 0 || dims.height <= 0) return
+
+    const { width, height } = dims
     svg.selectAll('*').remove()
+    svg.attr('width', width).attr('height', height)
 
     const margin = { top: 20, right: 20, bottom: 40, left: 60 }
     const innerWidth = width - margin.left - margin.right
@@ -95,10 +115,14 @@ export default function LinearVsLogScale() {
       .attr('font-size', '12px')
       .text('Population')
 
-  }, [data, timeSteps])
+  }, [data, timeSteps], dimensions)
 
-  const logRef = useD3((svg, { width, height }) => {
+  const logRef = useD3((svg, dims) => {
+    if (!dims || dims.width <= 0 || dims.height <= 0) return
+
+    const { width, height } = dims
     svg.selectAll('*').remove()
+    svg.attr('width', width).attr('height', height)
 
     const margin = { top: 20, right: 20, bottom: 40, left: 60 }
     const innerWidth = width - margin.left - margin.right
@@ -184,7 +208,7 @@ export default function LinearVsLogScale() {
       .attr('font-size', '12px')
       .text('log(Population)')
 
-  }, [data, timeSteps, growthRate])
+  }, [data, timeSteps, growthRate], dimensions)
 
   return (
     <ChartContainer
@@ -223,10 +247,10 @@ export default function LinearVsLogScale() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
-        <div className="border border-sand-200 rounded-lg p-2">
+        <div ref={linearContainerRef} className="border border-sand-200 rounded-lg p-2">
           <svg ref={linearRef} className="w-full h-64" />
         </div>
-        <div className="border border-sand-200 rounded-lg p-2">
+        <div ref={logContainerRef} className="border border-sand-200 rounded-lg p-2">
           <svg ref={logRef} className="w-full h-64" />
         </div>
       </div>

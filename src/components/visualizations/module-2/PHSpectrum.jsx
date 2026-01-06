@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useD3 } from '@hooks/useD3'
 import ChartContainer from '../shared/ChartContainer'
 import * as d3 from 'd3'
@@ -35,15 +35,36 @@ const categoryColors = {
 export default function PHSpectrum() {
   const [selectedPH, setSelectedPH] = useState(7)
   const [showExamples, setShowExamples] = useState(true)
+  const [dimensions, setDimensions] = useState({ width: 600, height: 256 })
+  const containerRef = useRef(null)
 
-  const svgRef = useD3((svg, { width, height }) => {
+  // Track container dimensions
+  useEffect(() => {
+    if (!containerRef.current) return
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const { width } = entry.contentRect
+        setDimensions({ width, height: 256 })
+      }
+    })
+    resizeObserver.observe(containerRef.current)
+    return () => resizeObserver.disconnect()
+  }, [])
+
+  const svgRef = useD3((svg, dims) => {
+    if (!dims || dims.width <= 0 || dims.height <= 0) return
+
+    const { width, height } = dims
     svg.selectAll('*').remove()
 
     const margin = { top: 40, right: 30, bottom: 80, left: 60 }
     const innerWidth = width - margin.left - margin.right
     const innerHeight = height - margin.top - margin.bottom
 
-    const g = svg.append('g')
+    const g = svg
+      .attr('width', width)
+      .attr('height', height)
+      .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`)
 
     // pH scale
@@ -194,7 +215,7 @@ export default function PHSpectrum() {
         setSelectedPH(Math.max(0, Math.min(14, newPH)))
       })
 
-  }, [selectedPH, showExamples])
+  }, [selectedPH, showExamples], dimensions)
 
   const getClosestExample = () => {
     return biologicalExamples.reduce((closest, current) =>
@@ -237,7 +258,9 @@ export default function PHSpectrum() {
         </label>
       </div>
 
-      <svg ref={svgRef} className="w-full h-64" />
+      <div ref={containerRef} className="w-full">
+        <svg ref={svgRef} className="w-full h-64" />
+      </div>
 
       <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
         <div className="bg-sand-50 rounded-lg p-3">

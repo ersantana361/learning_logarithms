@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useD3 } from '@hooks/useD3'
 import ChartContainer from '../shared/ChartContainer'
 import * as d3 from 'd3'
@@ -8,6 +8,21 @@ export default function HydrogenIonCalculator() {
   const [phValue, setPHValue] = useState(7)
   const [hConcentration, setHConcentration] = useState(1e-7)
   const [exponent, setExponent] = useState(-7)
+  const [dimensions, setDimensions] = useState({ width: 600, height: 192 })
+  const containerRef = useRef(null)
+
+  // Track container dimensions
+  useEffect(() => {
+    if (!containerRef.current) return
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const { width } = entry.contentRect
+        setDimensions({ width, height: 192 })
+      }
+    })
+    resizeObserver.observe(containerRef.current)
+    return () => resizeObserver.disconnect()
+  }, [])
 
   // Sync values when mode or inputs change
   useEffect(() => {
@@ -28,8 +43,13 @@ export default function HydrogenIonCalculator() {
     setHConcentration(Math.pow(10, newExp))
   }
 
-  const svgRef = useD3((svg, { width, height }) => {
+  const svgRef = useD3((svg, dims) => {
+    if (!dims || dims.width <= 0 || dims.height <= 0) return
+
+    const { width, height } = dims
     svg.selectAll('*').remove()
+
+    svg.attr('width', width).attr('height', height)
 
     const margin = { top: 30, right: 30, bottom: 30, left: 30 }
     const innerWidth = width - margin.left - margin.right
@@ -105,7 +125,6 @@ export default function HydrogenIonCalculator() {
 
     // Center arrows
     const arrowCenterX = innerWidth / 2
-    const arrowWidth = innerWidth * 0.15
 
     // Arrow from pH to [H+]
     const arrow1Y = centerY - 20
@@ -167,7 +186,7 @@ export default function HydrogenIonCalculator() {
     createMarker('green', '#22c55e')
     createMarker('gray', '#d1d5db')
 
-  }, [phValue, hConcentration, mode])
+  }, [phValue, hConcentration, mode], dimensions)
 
   return (
     <ChartContainer
@@ -197,7 +216,9 @@ export default function HydrogenIonCalculator() {
         </button>
       </div>
 
-      <svg ref={svgRef} className="w-full h-48" />
+      <div ref={containerRef} className="w-full">
+        <svg ref={svgRef} className="w-full h-48" />
+      </div>
 
       <div className="mt-6 grid md:grid-cols-2 gap-6">
         {/* pH Input */}

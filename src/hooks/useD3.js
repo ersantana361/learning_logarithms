@@ -5,20 +5,21 @@ import * as d3 from 'd3'
  * Custom hook for D3.js integration with React
  * Handles cleanup and re-rendering on dependency changes
  *
- * @param {Function} renderFn - Function that receives D3 selection and renders the visualization
+ * @param {Function} renderFn - Function that receives D3 selection and optional dimensions
  * @param {Array} dependencies - Dependency array for re-rendering
+ * @param {Object} dimensions - Optional dimensions object { width, height }
  * @returns {React.RefObject} - Ref to attach to the SVG or container element
  */
-export function useD3(renderFn, dependencies = []) {
+export function useD3(renderFn, dependencies = [], dimensions = null) {
   const ref = useRef(null)
 
   useEffect(() => {
-    if (ref.current) {
+    if (ref.current && (!dimensions || (dimensions.width > 0 && dimensions.height > 0))) {
       // Clear previous content to prevent duplicates
       d3.select(ref.current).selectAll('*').remove()
 
-      // Call the render function with the D3 selection
-      renderFn(d3.select(ref.current))
+      // Call the render function with the D3 selection and dimensions
+      renderFn(d3.select(ref.current), dimensions)
     }
 
     // Cleanup on unmount or before re-render
@@ -27,7 +28,7 @@ export function useD3(renderFn, dependencies = []) {
         d3.select(ref.current).selectAll('*').remove()
       }
     }
-  }, dependencies)
+  }, [...dependencies, dimensions?.width, dimensions?.height])
 
   return ref
 }

@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import Layout from '@components/layout/Layout'
+import ScrollToTop from '@components/layout/ScrollToTop'
 import Home from '@pages/Home'
 import ModuleOverview from '@pages/ModuleOverview'
 import ModuleDetail from '@pages/ModuleDetail'
@@ -12,7 +13,9 @@ import NotFound from '@pages/NotFound'
 
 function App() {
   return (
-    <Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="modules" element={<ModuleOverview />} />
@@ -26,6 +29,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
+    </>
   )
 }
 

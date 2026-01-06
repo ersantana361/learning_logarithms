@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef, useEffect } from 'react'
 import { useD3 } from '@hooks/useD3'
 import ChartContainer from '../shared/ChartContainer'
 import * as d3 from 'd3'
@@ -21,14 +21,31 @@ const soundExamples = [
 export default function DecibelDemo() {
   const [dB1, setDB1] = useState(60)
   const [dB2, setDB2] = useState(80)
+  const [dimensions, setDimensions] = useState({ width: 600, height: 128 })
+  const containerRef = useRef(null)
+
+  useEffect(() => {
+    if (!containerRef.current) return
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const { width } = entry.contentRect
+        setDimensions({ width, height: 128 })
+      }
+    })
+    resizeObserver.observe(containerRef.current)
+    return () => resizeObserver.disconnect()
+  }, [])
 
   const intensity1 = Math.pow(10, dB1 / 10) * 1e-12
   const intensity2 = Math.pow(10, dB2 / 10) * 1e-12
   const intensityRatio = intensity2 / intensity1
   const dBDifference = dB2 - dB1
 
-  const svgRef = useD3((svg, { width, height }) => {
+  const svgRef = useD3((svg, dims) => {
+    if (!dims || dims.width <= 0 || dims.height <= 0) return
+    const { width, height } = dims
     svg.selectAll('*').remove()
+    svg.attr('width', width).attr('height', height)
 
     const margin = { top: 30, right: 30, bottom: 40, left: 50 }
     const innerWidth = width - margin.left - margin.right
@@ -125,7 +142,7 @@ export default function DecibelDemo() {
       .attr('fill', '#6b7280')
       .text('Decibels (dB)')
 
-  }, [dB1, dB2])
+  }, [dB1, dB2], dimensions)
 
   const getClosestExample = (dB) => {
     return soundExamples.reduce((closest, current) =>
@@ -169,7 +186,9 @@ export default function DecibelDemo() {
         </div>
       </div>
 
-      <svg ref={svgRef} className="w-full h-32" />
+      <div ref={containerRef} className="w-full">
+        <svg ref={svgRef} className="w-full h-32" />
+      </div>
 
       <div className="mt-6 grid md:grid-cols-3 gap-4">
         <div className="bg-ocean-50 rounded-lg p-4 border border-ocean-200">

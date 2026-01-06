@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef, useEffect } from 'react'
 import * as d3 from 'd3'
 import { useD3 } from '@hooks/useD3'
 import ChartContainer from '../shared/ChartContainer'
@@ -11,8 +11,12 @@ import InteractiveSlider from '../shared/InteractiveSlider'
 export default function LogarithmicNumberLine() {
   const [selectedValue, setSelectedValue] = useState(100)
   const [showComparison, setShowComparison] = useState(true)
+  const [dimensions, setDimensions] = useState({ width: 600, height: 300 })
 
-  const renderChart = useCallback((svg, { width, height }) => {
+  const renderChart = useCallback((svg, dims) => {
+    if (!dims || dims.width <= 0 || dims.height <= 0) return
+
+    const { width, height } = dims
     const margin = { top: 40, right: 40, bottom: 60, left: 60 }
     const innerWidth = width - margin.left - margin.right
     const innerHeight = height - margin.top - margin.bottom
@@ -182,12 +186,7 @@ export default function LogarithmicNumberLine() {
 
   }, [selectedValue, showComparison])
 
-  const svgRef = useD3(
-    (svg) => {
-      // Will be called with dimensions from container
-    },
-    [selectedValue, showComparison]
-  )
+  const svgRef = useD3(renderChart, [selectedValue, showComparison], dimensions)
 
   return (
     <ChartContainer
@@ -222,21 +221,22 @@ export default function LogarithmicNumberLine() {
         </div>
       }
     >
-      {(dimensions) => (
-        <svg
-          ref={svgRef}
-          width={dimensions.width}
-          height={dimensions.height}
-          style={{ display: 'block' }}
-        >
-          {/* D3 will render here */}
-          <g ref={(node) => {
-            if (node) {
-              renderChart(d3.select(node.parentNode), dimensions)
-            }
-          }} />
-        </svg>
-      )}
+      {(containerDimensions) => {
+        // Update dimensions when container reports new dimensions
+        if (containerDimensions.width !== dimensions.width ||
+            containerDimensions.height !== dimensions.height) {
+          // Use setTimeout to avoid updating state during render
+          setTimeout(() => setDimensions(containerDimensions), 0)
+        }
+        return (
+          <svg
+            ref={svgRef}
+            width={containerDimensions.width}
+            height={containerDimensions.height}
+            style={{ display: 'block' }}
+          />
+        )
+      }}
     </ChartContainer>
   )
 }

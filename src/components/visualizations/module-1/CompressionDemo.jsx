@@ -9,6 +9,7 @@ import ChartContainer, { LegendItem } from '../shared/ChartContainer'
  */
 export default function CompressionDemo() {
   const [selectedData, setSelectedData] = useState('powers')
+  const [dimensions, setDimensions] = useState({ width: 600, height: 400 })
 
   const dataSets = {
     powers: {
@@ -34,7 +35,10 @@ export default function CompressionDemo() {
 
   const currentData = dataSets[selectedData]
 
-  const renderChart = useCallback((svg, { width, height }) => {
+  const renderChart = useCallback((svg, dims) => {
+    if (!dims || dims.width <= 0 || dims.height <= 0) return
+
+    const { width, height } = dims
     const margin = { top: 30, right: 30, bottom: 80, left: 60 }
     const innerWidth = (width - margin.left - margin.right - 40) / 2
     const innerHeight = height - margin.top - margin.bottom
@@ -177,6 +181,8 @@ export default function CompressionDemo() {
 
   }, [currentData])
 
+  const svgRef = useD3(renderChart, [currentData], dimensions)
+
   return (
     <ChartContainer
       title="Linear vs Logarithmic Bar Comparison"
@@ -208,19 +214,20 @@ export default function CompressionDemo() {
         </>
       }
     >
-      {(dimensions) => (
-        <svg
-          width={dimensions.width}
-          height={dimensions.height}
-          style={{ display: 'block' }}
-        >
-          <g ref={(node) => {
-            if (node) {
-              renderChart(d3.select(node.parentNode), dimensions)
-            }
-          }} />
-        </svg>
-      )}
+      {(containerDimensions) => {
+        if (containerDimensions.width !== dimensions.width ||
+            containerDimensions.height !== dimensions.height) {
+          setTimeout(() => setDimensions(containerDimensions), 0)
+        }
+        return (
+          <svg
+            ref={svgRef}
+            width={containerDimensions.width}
+            height={containerDimensions.height}
+            style={{ display: 'block' }}
+          />
+        )
+      }}
     </ChartContainer>
   )
 }

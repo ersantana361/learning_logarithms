@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef, useEffect } from 'react'
 import { useD3 } from '@hooks/useD3'
 import ChartContainer, { LegendItem } from '../shared/ChartContainer'
 import * as d3 from 'd3'
@@ -7,6 +7,20 @@ export default function EnzymeKineticsCurve() {
   const [Vmax, setVmax] = useState(100)
   const [Km, setKm] = useState(10)
   const [showMarkers, setShowMarkers] = useState(true)
+  const [dimensions, setDimensions] = useState({ width: 600, height: 320 })
+  const containerRef = useRef(null)
+
+  useEffect(() => {
+    if (!containerRef.current) return
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const { width } = entry.contentRect
+        setDimensions({ width, height: 320 })
+      }
+    })
+    resizeObserver.observe(containerRef.current)
+    return () => resizeObserver.disconnect()
+  }, [])
 
   const data = useMemo(() => {
     const points = []
@@ -17,8 +31,11 @@ export default function EnzymeKineticsCurve() {
     return points
   }, [Vmax, Km])
 
-  const svgRef = useD3((svg, { width, height }) => {
+  const svgRef = useD3((svg, dims) => {
+    if (!dims || dims.width <= 0 || dims.height <= 0) return
+    const { width, height } = dims
     svg.selectAll('*').remove()
+    svg.attr('width', width).attr('height', height)
 
     const margin = { top: 20, right: 30, bottom: 50, left: 70 }
     const innerWidth = width - margin.left - margin.right
@@ -145,7 +162,7 @@ export default function EnzymeKineticsCurve() {
       .attr('stroke-width', 3)
       .attr('d', line)
 
-  }, [data, Vmax, Km, showMarkers])
+  }, [data, Vmax, Km, showMarkers], dimensions)
 
   return (
     <ChartContainer
@@ -197,7 +214,9 @@ export default function EnzymeKineticsCurve() {
         </label>
       </div>
 
-      <svg ref={svgRef} className="w-full h-80" />
+      <div ref={containerRef} className="w-full">
+        <svg ref={svgRef} className="w-full h-80" />
+      </div>
 
       <div className="mt-4 p-4 bg-ocean-50 border border-ocean-200 rounded-lg">
         <h4 className="font-semibold text-ocean-800 mb-2">The Michaelis-Menten Equation</h4>

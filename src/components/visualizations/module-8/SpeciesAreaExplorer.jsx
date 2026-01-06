@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef, useEffect } from 'react'
 import { useD3 } from '@hooks/useD3'
 import ChartContainer, { LegendItem } from '../shared/ChartContainer'
 import * as d3 from 'd3'
@@ -21,6 +21,20 @@ const islandData = [
 export default function SpeciesAreaExplorer() {
   const [showRegression, setShowRegression] = useState(true)
   const [hoveredIsland, setHoveredIsland] = useState(null)
+  const [dimensions, setDimensions] = useState({ width: 600, height: 320 })
+  const containerRef = useRef(null)
+
+  useEffect(() => {
+    if (!containerRef.current) return
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const { width } = entry.contentRect
+        setDimensions({ width, height: 320 })
+      }
+    })
+    resizeObserver.observe(containerRef.current)
+    return () => resizeObserver.disconnect()
+  }, [])
 
   // Calculate regression on log-transformed data
   const regression = useMemo(() => {
@@ -48,8 +62,11 @@ export default function SpeciesAreaExplorer() {
     return { z, c, rSquared }
   }, [])
 
-  const svgRef = useD3((svg, { width, height }) => {
+  const svgRef = useD3((svg, dims) => {
+    if (!dims || dims.width <= 0 || dims.height <= 0) return
+    const { width, height } = dims
     svg.selectAll('*').remove()
+    svg.attr('width', width).attr('height', height)
 
     const margin = { top: 20, right: 30, bottom: 60, left: 70 }
     const innerWidth = width - margin.left - margin.right
@@ -151,7 +168,7 @@ export default function SpeciesAreaExplorer() {
       }
     })
 
-  }, [showRegression, hoveredIsland, regression])
+  }, [showRegression, hoveredIsland, regression], dimensions)
 
   return (
     <ChartContainer
@@ -172,7 +189,9 @@ export default function SpeciesAreaExplorer() {
         <LegendItem color="#ef4444" label="S = cA^z" />
       </div>
 
-      <svg ref={svgRef} className="w-full h-80" />
+      <div ref={containerRef} className="w-full">
+        <svg ref={svgRef} className="w-full h-80" />
+      </div>
 
       <div className="mt-4 grid md:grid-cols-4 gap-4">
         <div className="bg-forest-50 rounded-lg p-3 border border-forest-200">

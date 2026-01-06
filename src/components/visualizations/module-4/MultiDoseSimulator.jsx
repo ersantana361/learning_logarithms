@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef, useEffect } from 'react'
 import { useD3 } from '@hooks/useD3'
 import ChartContainer, { LegendItem } from '../shared/ChartContainer'
 import * as d3 from 'd3'
@@ -9,6 +9,20 @@ export default function MultiDoseSimulator() {
   const [dosingInterval, setDosingInterval] = useState(8)
   const [numDoses, setNumDoses] = useState(8)
   const [showSteadyState, setShowSteadyState] = useState(true)
+  const [dimensions, setDimensions] = useState({ width: 600, height: 320 })
+  const containerRef = useRef(null)
+
+  useEffect(() => {
+    if (!containerRef.current) return
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const { width } = entry.contentRect
+        setDimensions({ width, height: 320 })
+      }
+    })
+    resizeObserver.observe(containerRef.current)
+    return () => resizeObserver.disconnect()
+  }, [])
 
   const data = useMemo(() => {
     const points = []
@@ -38,8 +52,11 @@ export default function MultiDoseSimulator() {
   const steadyStateTrough = steadyStatePeak * Math.exp(-k * dosingInterval)
   const fluctuation = ((steadyStatePeak - steadyStateTrough) / steadyStateTrough * 100)
 
-  const svgRef = useD3((svg, { width, height }) => {
+  const svgRef = useD3((svg, dims) => {
+    if (!dims || dims.width <= 0 || dims.height <= 0) return
+    const { width, height } = dims
     svg.selectAll('*').remove()
+    svg.attr('width', width).attr('height', height)
 
     const margin = { top: 20, right: 30, bottom: 50, left: 70 }
     const innerWidth = width - margin.left - margin.right
@@ -156,7 +173,7 @@ export default function MultiDoseSimulator() {
       .attr('stroke-width', 2)
       .attr('d', line)
 
-  }, [data, numDoses, dosingInterval, steadyStatePeak, steadyStateTrough, showSteadyState])
+  }, [data, numDoses, dosingInterval, steadyStatePeak, steadyStateTrough, showSteadyState], dimensions)
 
   return (
     <ChartContainer
@@ -234,7 +251,9 @@ export default function MultiDoseSimulator() {
         </label>
       </div>
 
-      <svg ref={svgRef} className="w-full h-80" />
+      <div ref={containerRef} className="w-full">
+        <svg ref={svgRef} className="w-full h-80" />
+      </div>
 
       <div className="mt-4 grid md:grid-cols-4 gap-4 text-sm">
         <div className="bg-red-50 rounded-lg p-3 border border-red-200">
