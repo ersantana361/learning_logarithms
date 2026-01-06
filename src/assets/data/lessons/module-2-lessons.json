@@ -7,7 +7,11 @@
       "sections": [
         {
           "type": "narrative",
-          "content": "In 1909, Danish biochemist Soren Sorensen introduced a revolutionary way to measure acidity: the **pH scale**. Rather than dealing with unwieldy numbers like 0.0000001 moles per liter of hydrogen ions, he proposed using the negative logarithm of hydrogen ion concentration."
+          "content": "In 1909, Danish biochemist Soren Sorensen faced a problem: hydrogen ion concentrations in water span a huge range and involve awkward numbers like:\n\n- Stomach acid: **0.01 M** (that's 1/100)\n- Pure water: **0.0000001 M** (that's 1/10,000,000!)\n- Bleach: **0.00000000000001 M**\n\nThese numbers are hard to compare, communicate, and remember."
+        },
+        {
+          "type": "narrative",
+          "content": "Sorensen's insight was to use **logarithms** to compress this range. Here's how it works:\n\nNotice that 0.0000001 = 10⁻⁷. The logarithm extracts that exponent: log(10⁻⁷) = -7.\n\nTaking the negative gives us **pH = 7**—a simple, memorable number!\n\nThis is the pH scale: **pH = -log₁₀[H⁺]**"
         },
         {
           "type": "definition",
@@ -77,7 +81,7 @@
         },
         {
           "type": "narrative",
-          "content": "**Why the negative sign?** Hydrogen ion concentrations in aqueous solutions are typically very small (between 10⁰ and 10⁻¹⁴ M). Taking the negative of the log converts these negative exponents into positive, more intuitive pH values between 0 and 14."
+          "content": "**Why the negative sign?** Let's trace through an example:\n\nSuppose [H⁺] = 0.00001 M (slightly acidic).\n\n**Step 1:** Write as a power of 10: 0.00001 = 10⁻⁵\n**Step 2:** Take the log: log(10⁻⁵) = -5\n**Step 3:** Apply the negative: pH = -(-5) = **5**\n\nWithout the negative sign, we'd have pH = -5 (a negative number for an acidic solution), which would be counterintuitive. The negative sign flips the scale so that:\n- More H⁺ → smaller (more negative) exponent → **lower pH** → more acidic\n- Less H⁺ → larger (less negative) exponent → **higher pH** → more basic"
         },
         {
           "type": "keyPoint",

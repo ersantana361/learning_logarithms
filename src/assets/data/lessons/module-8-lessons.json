@@ -19,12 +19,16 @@
           "component": "SpeciesAreaExplorer"
         },
         {
+          "type": "narrative",
+          "content": "**Where does the '90% area → 50% species' rule come from?**\n\nLet's work through the math. The species-area relationship is S = cA^z, where z ≈ 0.25 typically.\n\nIf we reduce area by 90% (A → 0.1A):\n- New species: S_new = c(0.1A)^0.25 = c × 0.1^0.25 × A^0.25\n- Ratio: S_new/S_old = 0.1^0.25 = **0.56**\n\nSo about 56% of species remain—roughly **half**.\n\nThis has sobering implications: destroying 90% of a habitat doesn't just displace species—it likely drives half of them to extinction. Conservation reserves need to be large to preserve biodiversity."
+        },
+        {
           "type": "keyPoint",
           "points": [
             "The relationship appears linear on a log-log plot",
             "z ≈ 0.25 for islands, slightly higher for habitat fragments",
             "Used to predict species loss from habitat destruction",
-            "Reducing area by 90% typically cuts species by 50%"
+            "Reducing area by 90% typically cuts species by 50% (see derivation above)"
           ]
         }
       ]
@@ -35,7 +39,11 @@
       "sections": [
         {
           "type": "narrative",
-          "content": "Ecologists use logarithm-based indices to measure biodiversity. The **Shannon diversity index** uses entropy (from information theory) to quantify how evenly species are distributed in a community."
+          "content": "Ecologists use logarithm-based indices to measure biodiversity. The most famous is the **Shannon diversity index**—but what does it actually measure?"
+        },
+        {
+          "type": "narrative",
+          "content": "**The 'surprise' intuition:**\n\nImagine randomly picking an individual from a community. How 'surprised' are you by which species you get?\n\n- In a community with **just 1 species**: no surprise at all (H' = 0)\n- In a community with **100 equally-common species**: maximum surprise (H' = ln(100) ≈ 4.6)\n- In a community with **100 species, but one dominates 99%**: low surprise (H' ≈ 0.1)\n\nThe Shannon index captures both **richness** (number of species) and **evenness** (how equally distributed they are)."
         },
         {
           "type": "math",
@@ -43,10 +51,14 @@
           "explanation": "Shannon diversity H' sums the product of each species' proportion (pᵢ) and its logarithm. Higher values indicate greater diversity."
         },
         {
+          "type": "narrative",
+          "content": "**Why logarithms in the formula?**\n\nThe formula H' = -Σ pᵢ × ln(pᵢ) uses logarithms because:\n- Rare species (small p) have large -ln(p), contributing to 'surprise'\n- But they're weighted by p, so very rare species don't dominate the index\n\n**Effective number of species** = e^H' converts this back to an intuitive count: 'This community has the diversity equivalent of X equally-common species.'\n\nFor example, if H' = 2.3, then effective species = e^2.3 ≈ **10**. This means the community has the same diversity as 10 equally-abundant species would."
+        },
+        {
           "type": "keyPoint",
           "points": [
             "Shannon index increases with both species richness and evenness",
-            "Effective number of species = e^H'",
+            "Effective number of species = e^H' (intuitive interpretation)",
             "Maximum H' = ln(S) when all species are equally abundant",
             "Logarithms allow comparison across communities with different total abundances"
           ]

@@ -7,17 +7,25 @@
       "sections": [
         {
           "type": "narrative",
-          "content": "When a population doubles every fixed time interval, it exhibits **exponential growth**. This pattern is fundamental to biology—from bacterial colonies to human populations. Understanding exponential growth requires understanding logarithms, because logarithms are the mathematical tool that 'undoes' exponential functions."
+          "content": "When a population doubles every fixed time interval, it exhibits **exponential growth**. This pattern is fundamental to biology—from bacterial colonies to human populations."
+        },
+        {
+          "type": "narrative",
+          "content": "Understanding exponential growth requires logarithms—but why?\n\nWith exponential growth, we often know the starting population and the final population, but need to find **how long** it took to grow. For example:\n\n*'We started with 100 bacteria and now have 6,400. How many generations passed?'*\n\nThe population formula is: N = N₀ × 2^t (for doubling each generation).\nWe know N = 6,400 and N₀ = 100, so:\n6,400 = 100 × 2^t → 64 = 2^t\n\nTo solve for t (the unknown exponent), we need to 'undo' the exponential. That's what logarithms do:\nt = log₂(64) = **6 generations**\n\nLogarithms let us solve for the exponent—the 'hidden' time variable in growth equations."
         },
         {
           "type": "definition",
           "term": "Exponential Growth",
-          "definition": "Growth where the rate of increase is proportional to the current size. If a population doubles every time period, N(t) = N₀ × 2^t, or equivalently, N(t) = N₀ × e^(rt) where r is the continuous growth rate."
+          "definition": "Growth where the rate of increase is proportional to the current size. If a population doubles every time period, N(t) = N₀ × 2^t. Scientists also write this as N(t) = N₀ × e^(rt) using the special number e."
         },
         {
           "type": "math",
           "equation": "N(t) = N_0 \\cdot e^{rt}",
-          "explanation": "N(t) is population at time t, N₀ is initial population, r is the continuous growth rate, and e ≈ 2.718 is the natural base."
+          "explanation": "N(t) is population at time t, N₀ is initial population, r is the growth rate constant, and e ≈ 2.718 is a special number (like π) that appears in growth problems."
+        },
+        {
+          "type": "narrative",
+          "content": "**Why use e instead of 2?** Both formulas work! The 2^t version is intuitive (doubling each period), while the e^(rt) version is preferred by scientists because it makes certain calculations simpler. You can use whichever makes more sense for the problem—they're just different ways of describing the same growth."
         },
         {
           "type": "visualization",
@@ -34,9 +42,9 @@
         },
         {
           "type": "practice",
-          "question": "A bacterial population doubles every 20 minutes. What is its continuous growth rate r?",
-          "hint": "Use t₂ = ln(2)/r and solve for r",
-          "answer": "r = ln(2)/20 ≈ 0.035 per minute, or about 2.1 per hour"
+          "question": "A bacterial population doubles every 20 minutes. What is its growth rate constant r?",
+          "hint": "Use the doubling time formula: t₂ = ln(2)/r, then solve for r. (ln(2) ≈ 0.693)",
+          "answer": "r = ln(2)/20 = 0.693/20 ≈ 0.035 per minute, or about 2.1 per hour"
         }
       ]
     },
@@ -152,7 +160,11 @@
       "sections": [
         {
           "type": "narrative",
-          "content": "The **doubling time** (or generation time) is one of the most important parameters in population biology. It tells us how fast a population can grow and is directly related to the growth rate constant through a logarithmic relationship."
+          "content": "The **doubling time** (or generation time) is one of the most important parameters in population biology. It tells us how fast a population can grow. Let's derive the formula step by step."
+        },
+        {
+          "type": "narrative",
+          "content": "We want to find the time t₂ when population doubles: N(t₂) = 2 × N₀\n\nUsing the growth equation:\nN₀ × e^(r×t₂) = 2 × N₀\n\nDivide both sides by N₀:\ne^(r×t₂) = 2\n\nTake the natural log of both sides to solve for t₂:\nr × t₂ = ln(2)\n\nTherefore:\n**t₂ = ln(2)/r ≈ 0.693/r**\n\nThe ln(2) appears because we're solving for when the population reaches exactly **2 times** its original size. Since ln(2) ≈ 0.693, a population with growth rate r = 0.1 per hour will double in about 6.93 hours."
         },
         {
           "type": "property",

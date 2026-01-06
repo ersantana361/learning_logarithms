@@ -7,7 +7,11 @@
       "sections": [
         {
           "type": "narrative",
-          "content": "When you take a drug, your body immediately begins eliminating it through metabolism and excretion. Most drugs follow **first-order kinetics**, where the rate of elimination is proportional to the current concentration. This creates exponential decay—and logarithms are essential for understanding and calculating drug levels."
+          "content": "When you take a drug, your body immediately begins eliminating it through metabolism and excretion. Most drugs follow **first-order kinetics**. Here's what that means with a concrete example:"
+        },
+        {
+          "type": "narrative",
+          "content": "Suppose your body eliminates 10% of a drug per hour:\n\n- Start with **100 mg** → eliminate 10 mg → **90 mg** remain\n- Next hour: eliminate 10% of 90 = 9 mg → **81 mg** remain\n- Next hour: eliminate 10% of 81 = 8.1 mg → **72.9 mg** remain\n\nNotice: the *amount* eliminated decreases each hour (10 → 9 → 8.1), but the *fraction* (10%) stays constant. This is first-order kinetics: the rate of elimination is proportional to how much drug is currently present.\n\nMathematically, this creates exponential decay—and logarithms are essential for calculating how long until drug levels reach a target value."
         },
         {
           "type": "definition",

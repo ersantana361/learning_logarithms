@@ -7,7 +7,11 @@
       "sections": [
         {
           "type": "narrative",
-          "content": "Many biological relationships follow **power laws**: Y = aX^b. From metabolic rates scaling with body mass to heart rates varying across species, these patterns reveal fundamental principles about how organisms work. Logarithms are essential for discovering and analyzing these relationships."
+          "content": "Many biological relationships follow **power laws**: Y = aX^b. From metabolic rates scaling with body mass to heart rates varying across species, these patterns reveal fundamental principles about how organisms work."
+        },
+        {
+          "type": "narrative",
+          "content": "But how do we discover if data follows a power law? Here's the key insight:\n\nIf Y = aX^b, taking logarithms of both sides gives:\n**log(Y) = log(a) + b × log(X)**\n\nThis is now in the form y = mx + c—a straight line!\n\nWhen we plot log(Y) vs log(X):\n- The **slope** equals the exponent b\n- The **y-intercept** equals log(a)\n\nSo by plotting data on log-log axes, we can:\n1. Visually check if it follows a power law (does it look straight?)\n2. Read off the exponent directly from the slope\n\nThis is why logarithms are essential for discovering and analyzing these relationships."
         },
         {
           "type": "definition",
@@ -35,7 +39,11 @@
       "sections": [
         {
           "type": "narrative",
-          "content": "In 1932, Max Kleiber discovered that metabolic rate scales with body mass to the 3/4 power across all mammals. This **Kleiber's Law** (B ∝ M^0.75) has profound implications: larger animals are more energy-efficient per unit mass."
+          "content": "In 1932, Max Kleiber discovered that metabolic rate scales with body mass to the 3/4 power across all mammals. This **Kleiber's Law** (B ∝ M^0.75) has profound implications."
+        },
+        {
+          "type": "narrative",
+          "content": "**Why doesn't metabolism scale linearly (M^1) with mass?**\n\nConsider: Heat production is proportional to metabolic rate, which scales with volume (∝ M^1).\nBut heat loss happens through the skin, which scales with surface area (∝ M^0.67).\n\nIf metabolism scaled as M^1, larger animals would produce heat faster than they could lose it—they'd overheat!\n\nThe 0.75 exponent is a compromise: larger animals are more energy-efficient per kilogram, helping them stay cool.\n\n**Example:** An elephant has ~10,000× a mouse's mass but only ~1,000× its metabolic rate. This is why elephants can exist—if they had mouse-level metabolism per gram, they'd cook themselves!"
         },
         {
           "type": "math",

@@ -7,7 +7,15 @@
       "sections": [
         {
           "type": "narrative",
-          "content": "Our senses don't perceive the world linearly. The **Weber-Fechner Law** states that perceived intensity is proportional to the logarithm of stimulus intensity. This explains why we need logarithmic scales to describe sound (decibels), light (exposure values), and other sensory experiences."
+          "content": "Our senses don't perceive the world linearly. Here's what that means in practice:"
+        },
+        {
+          "type": "narrative",
+          "content": "Imagine you're holding a 1-lb weight:\n- Adding **0.1 lb** feels noticeable\n\nNow hold a 10-lb weight:\n- Adding **0.1 lb** is barely perceptible\n- You'd need to add **~1 lb** (10%) to notice the same difference\n\nThe **ratio** (10%) matters, not the absolute amount. Mathematically:\n- Going from 1 lb to 2 lb (2× ratio) feels like a certain increase\n- Going from 10 lb to 20 lb (same 2× ratio) feels like the *same* increase\n\nSince perception responds to **ratios**, and logarithms turn ratios into differences (log(a/b) = log(a) - log(b)), logarithmic scales naturally describe our senses."
+        },
+        {
+          "type": "narrative",
+          "content": "The **Weber-Fechner Law** formalizes this: perceived intensity is proportional to the logarithm of stimulus intensity. This explains why we use logarithmic scales to describe sound (decibels), light (exposure values), and other sensory experiences."
         },
         {
           "type": "definition",
@@ -35,7 +43,11 @@
       "sections": [
         {
           "type": "narrative",
-          "content": "The **decibel** is a logarithmic unit that compresses the enormous range of sound intensities into a manageable scale. Understanding decibels is essential for audiology, acoustics, and protecting hearing from damage."
+          "content": "The **decibel** is a logarithmic unit that compresses the enormous range of sound intensities into a manageable scale. Let's trace through the formula step by step."
+        },
+        {
+          "type": "narrative",
+          "content": "The threshold of hearing (barely audible) is I₀ = 10⁻¹² W/m². We compare all sounds to this reference.\n\n**Example 1: Normal conversation (I = 10⁻⁶ W/m²)**\n- Ratio: I/I₀ = 10⁻⁶/10⁻¹² = 10⁶ (a million times more intense!)\n- Log: log₁₀(10⁶) = 6\n- Decibels: 10 × 6 = **60 dB**\n\n**Example 2: Rock concert (I = 10⁻² W/m²)**\n- Ratio: I/I₀ = 10⁻²/10⁻¹² = 10¹⁰\n- Decibels: 10 × 10 = **100 dB**\n\nNotice: the rock concert is 10,000× more intense than conversation (10⁻² vs 10⁻⁶), but only 40 dB louder (100 - 60). Decibels compress this enormous range into manageable numbers."
         },
         {
           "type": "math",

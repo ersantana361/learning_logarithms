@@ -24,6 +24,10 @@
           "definition": "The substrate concentration at which reaction velocity equals half of Vmax. Low Km indicates high enzyme-substrate affinity."
         },
         {
+          "type": "narrative",
+          "content": "**What does Km actually tell us?**\n\nKm is the substrate concentration [S] at which the reaction runs at half its maximum speed (V = Vmax/2).\n\nThink of it like this:\n- If an enzyme has **low Km** (say, 0.001 M), it reaches half-max speed even when substrate is scarce. The enzyme 'grabs' substrate very efficiently—**high affinity**.\n- If an enzyme has **high Km** (say, 1 M), you need lots of substrate before it reaches half-max speed. The enzyme is less eager to bind substrate—**low affinity**.\n\n**Analogy:** Km is like asking 'How much food do you need before you're half-full?' A small appetite (low Km) means you're satisfied with less."
+        },
+        {
           "type": "keyPoint",
           "points": [
             "Km = [S] when V = Vmax/2",

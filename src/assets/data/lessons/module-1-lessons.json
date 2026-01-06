@@ -7,11 +7,15 @@
       "sections": [
         {
           "type": "narrative",
-          "content": "Imagine you're a biologist studying bacteria. You start with 1 bacterium, and it doubles every hour. After some time, you count 1,024 bacteria. A natural question arises: **How many hours have passed?**"
+          "content": "Imagine you're a biologist studying bacteria. You start with 1 bacterium, and it doubles every hour. Let's trace what happens:"
         },
         {
           "type": "narrative",
-          "content": "To find the answer, you need to solve: 2^x = 1024. What power of 2 gives you 1024? This is exactly the question a logarithm answers."
+          "content": "- After 1 hour: 1 × 2 = **2** bacteria\n- After 2 hours: 2 × 2 = **4** bacteria\n- After 3 hours: 4 × 2 = **8** bacteria\n- After 4 hours: 8 × 2 = **16** bacteria\n\nDo you see the pattern? Each hour, we multiply by 2 again. After x hours, we've multiplied by 2 a total of x times. Mathematically, that's **2^x** (2 raised to the power x)."
+        },
+        {
+          "type": "narrative",
+          "content": "Now here's the question: You count **1,024 bacteria**. How many hours have passed?\n\nIn other words, we need to find x in the equation: **2^x = 1024**. What power of 2 gives us 1024?\n\nThis is exactly the question a logarithm answers."
         },
         {
           "type": "math",
@@ -112,7 +116,7 @@
         {
           "type": "definition",
           "term": "Natural Logarithm (ln)",
-          "definition": "The logarithm with base e ≈ 2.71828, written as 'ln'. Used in growth models, calculus, and physics."
+          "definition": "The logarithm with base e ≈ 2.71828, written as 'ln'. Used in growth models, biology, and physics. (It's called 'natural' because e shows up naturally in growth and decay—not because it's easy!)"
         },
         {
           "type": "math",
@@ -121,7 +125,11 @@
         },
         {
           "type": "narrative",
-          "content": "Why is e ≈ 2.718 considered 'natural'? It emerges from continuous growth. If something grows continuously at 100% rate, after one unit of time it will have grown by a factor of e. This makes e the natural base for describing growth, decay, and change in the real world."
+          "content": "**Practical tip:** You don't need to understand *why* e works—just know that your calculator has an **ln** button! When you see ln(x) in a formula, just type the number and press ln. For example, ln(2) ≈ 0.693 and ln(10) ≈ 2.303."
+        },
+        {
+          "type": "narrative",
+          "content": "Why is e ≈ 2.718 considered 'natural'? Imagine putting $1 in a bank with 100% annual interest:\n\n- If interest is added **once** at year-end: $1 × 2 = **$2.00**\n- If added **twice** (50% each half-year): $1 × 1.5 × 1.5 = **$2.25**\n- If added **monthly** (8.33% each month): **$2.61**\n- If added **daily**: **$2.714**\n- If added **every hour**: **$2.718...**\n\nAs you divide the interest into smaller and smaller pieces, the total approaches a specific number: **2.718...** This is **e**.\n\n(Don't worry—you don't need to know calculus to use e. Just think of it as a special number, like π, that shows up in growth and decay problems. Your calculator has an 'e' button!)"
         },
         {
           "type": "comparison",
@@ -134,8 +142,8 @@
             },
             {
               "type": "Natural Log (ln)",
-              "uses": ["Population growth", "Radioactive decay", "Drug elimination", "Calculus"],
-              "reason": "Base e simplifies the mathematics of continuous change"
+              "uses": ["Population growth", "Radioactive decay", "Drug elimination", "Biology"],
+              "reason": "Base e appears naturally in growth and decay processes"
             }
           ]
         },
@@ -151,13 +159,13 @@
       "sections": [
         {
           "type": "narrative",
-          "content": "Logarithms have several properties that make calculations easier. These properties are direct consequences of how exponents work."
+          "content": "Logarithms have several properties that make calculations easier. Let's understand **why** these properties work by thinking of logarithms as 'exponent detectors'—they extract the power from an exponential expression."
         },
         {
           "type": "property",
           "name": "Product Rule",
           "formula": "\\log(A \\times B) = \\log(A) + \\log(B)",
-          "explanation": "The log of a product equals the sum of the logs. This is because when you multiply numbers, you add their exponents.",
+          "explanation": "The log of a product equals the sum of the logs. Here's why:\n\nIf log₁₀(100) = 2 and log₁₀(1000) = 3, that tells us 100 = 10² and 1000 = 10³.\n\nWhen we multiply: 100 × 1000 = 10² × 10³ = 10^(2+3) = 10⁵\n\nThe exponents added! Since logarithms extract these exponents, it follows that:\nlog(100 × 1000) = log(100) + log(1000) = 2 + 3 = 5 ✓",
           "example": "log(100 × 1000) = log(100) + log(1000) = 2 + 3 = 5 ✓ (since 100 × 1000 = 100,000 = 10^5)"
         },
         {
