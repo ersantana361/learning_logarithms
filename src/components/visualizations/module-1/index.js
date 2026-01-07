@@ -1,3 +1,7 @@
 export { default as LogarithmicNumberLine } from './LogarithmicNumberLine'
 export { default as ExponentialLogConverter } from './ExponentialLogConverter'
 export { default as CompressionDemo } from './CompressionDemo'
+export { default as BacteriaDoublingVisualization } from './BacteriaDoublingVisualization'
+export { default as CompoundInterestConvergence } from './CompoundInterestConvergence'
+export { default as LogPropertiesVisualizer } from './LogPropertiesVisualizer'
+export { default as LogScaleTransformer } from './LogScaleTransformer'

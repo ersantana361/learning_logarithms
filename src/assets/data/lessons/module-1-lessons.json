@@ -10,12 +10,12 @@
           "content": "Imagine you're a biologist studying bacteria. You start with 1 bacterium, and it doubles every hour. Let's trace what happens:"
         },
         {
-          "type": "narrative",
-          "content": "- After 1 hour: 1 × 2 = **2** bacteria\n- After 2 hours: 2 × 2 = **4** bacteria\n- After 3 hours: 4 × 2 = **8** bacteria\n- After 4 hours: 8 × 2 = **16** bacteria\n\nDo you see the pattern? Each hour, we multiply by 2 again. After x hours, we've multiplied by 2 a total of x times. Mathematically, that's **2^x** (2 raised to the power x)."
+          "type": "visualization",
+          "component": "BacteriaDoublingVisualization"
         },
         {
           "type": "narrative",
-          "content": "Now here's the question: You count **1,024 bacteria**. How many hours have passed?\n\nIn other words, we need to find x in the equation: **2^x = 1024**. What power of 2 gives us 1024?\n\nThis is exactly the question a logarithm answers."
+          "content": "Do you see the pattern? Each hour, we multiply by 2 again. After x hours, we've multiplied by 2 a total of x times. Mathematically, that's **2^x** (2 raised to the power x)."
         },
         {
           "type": "math",
@@ -129,7 +129,15 @@
         },
         {
           "type": "narrative",
-          "content": "Why is e ≈ 2.718 considered 'natural'? Imagine putting $1 in a bank with 100% annual interest:\n\n- If interest is added **once** at year-end: $1 × 2 = **$2.00**\n- If added **twice** (50% each half-year): $1 × 1.5 × 1.5 = **$2.25**\n- If added **monthly** (8.33% each month): **$2.61**\n- If added **daily**: **$2.714**\n- If added **every hour**: **$2.718...**\n\nAs you divide the interest into smaller and smaller pieces, the total approaches a specific number: **2.718...** This is **e**.\n\n(Don't worry—you don't need to know calculus to use e. Just think of it as a special number, like π, that shows up in growth and decay problems. Your calculator has an 'e' button!)"
+          "content": "Why is e ≈ 2.718 considered 'natural'? Imagine putting $1 in a bank with 100% annual interest. Watch what happens as you compound more frequently:"
+        },
+        {
+          "type": "visualization",
+          "component": "CompoundInterestConvergence"
+        },
+        {
+          "type": "narrative",
+          "content": "As you divide the interest into smaller and smaller pieces, the total approaches **e ≈ 2.718**. This is why e shows up naturally in growth and decay problems!"
         },
         {
           "type": "comparison",
@@ -150,6 +158,10 @@
         {
           "type": "visualization",
           "component": "LogarithmicNumberLine"
+        },
+        {
+          "type": "visualization",
+          "component": "LogScaleTransformer"
         }
       ]
     },
@@ -181,6 +193,10 @@
           "formula": "\\log(A^n) = n \\times \\log(A)",
           "explanation": "The log of a power equals the exponent times the log. Raising to a power multiplies the exponent.",
           "example": "log(10^5) = 5 × log(10) = 5 × 1 = 5 ✓"
+        },
+        {
+          "type": "visualization",
+          "component": "LogPropertiesVisualizer"
         },
         {
           "type": "narrative",

@@ -1,5 +1,13 @@
 import MathDisplay, { MathBlock, MathWithExplanation } from './MathDisplay'
-import { LogarithmicNumberLine, ExponentialLogConverter, CompressionDemo } from '@components/visualizations/module-1'
+import {
+  LogarithmicNumberLine,
+  ExponentialLogConverter,
+  CompressionDemo,
+  BacteriaDoublingVisualization,
+  CompoundInterestConvergence,
+  LogPropertiesVisualizer,
+  LogScaleTransformer
+} from '@components/visualizations/module-1'
 import { PHSpectrum, HydrogenIonCalculator, OceanAcidificationChart } from '@components/visualizations/module-2'
 import { PopulationGrowthSimulator, LinearVsLogScale, BacterialGrowthCurve } from '@components/visualizations/module-3'
 import { DrugConcentrationCurve, MultiDoseSimulator, TherapeuticWindow } from '@components/visualizations/module-4'
@@ -14,6 +22,10 @@ const visualizationComponents = {
   LogarithmicNumberLine,
   ExponentialLogConverter,
   CompressionDemo,
+  BacteriaDoublingVisualization,
+  CompoundInterestConvergence,
+  LogPropertiesVisualizer,
+  LogScaleTransformer,
   // Module 2
   PHSpectrum,
   HydrogenIonCalculator,
